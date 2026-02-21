@@ -1,34 +1,42 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
+from datetime import timedelta
 
-#recipe model to store recipes
+
+
+#(testing only)
 class Recipe(models.Model):
+   
     name = models.CharField(max_length=100)
-    #can access ingredients through Recipe.RecipeIngredient_set.all()
-    
-    nutrition = models.ListField(IntegerField(max_length=100))
+    meal_type = models.CharField(max_length=20)  # breakfast, lunch, dinner
+    calories = models.IntegerField(default=0)
+    estimated_cost = models.DecimalField(max_digits=8, decimal_places=2, default=0)
 
-#ingredient needed in a recipe, linked to the recipe through a foreign key
-class RecipeIngredient(models.Model):
-    #ManytoOne relationship with Recipe, if a recipe is deleted, all its ingredients will be deleted as well
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    #name of the ingredient
-    name = models.CharField(max_length=100)
-    #how much of ingredient is needed (number only)
-    quantity = models.FloatField()
-    #unit of measurement for the ingredient
-    metric = models.CharField(max_length=20)
+#(testing only)
+class GroceryList(models.Model):
+    """(Simple grocery list model for meal plan testing)"""
+    name = models.CharField(max_length=200, default="My Grocery List")
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.name
+
 
 # user's Meal plan for a specific week
 class MealPlan(models.Model):
+
     # Each meal plan belongs to one user
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='meal_plans')
+
     # The Monday of the week this plan is for
     # Example: If planning for March 18-24, store March 18
     week_start_date = models.DateField()
+
     # Automatic timestamps - Django fills these in
     created_at = models.DateTimeField(auto_now_add=True)  # When plan was created
     updated_at = models.DateTimeField(auto_now=True)      # When plan was last changed
+
     # Estimated total cost of ALL meals in this plan
     total_cost_estimate = models.DecimalField(
         max_digits=10, 
@@ -36,9 +44,11 @@ class MealPlan(models.Model):
         null=True, 
         blank=True
     )
+
     # Whether this is the user's CURRENT active plan
     # A user might have old plans saved, but only one active
     is_active = models.BooleanField(default=True)
+
     # Link to the grocery list generated from this plan
     # One plan generates ONE grocery list
     generated_grocery_list = models.ForeignKey(
@@ -48,6 +58,7 @@ class MealPlan(models.Model):
         blank=True
     )
     
+
 # A SINGLE meal slot in a weekly plan
 class PlannedMeal(models.Model):
     # Define the possible meal types (choices)
