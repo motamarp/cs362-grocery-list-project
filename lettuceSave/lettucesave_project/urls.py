@@ -9,6 +9,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('lettuce_app.urls')),
+    path('planner/', include('planner.urls')),
 ]
 
 if settings.DEBUG:
