@@ -1,90 +1,95 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
-from .models import Recipe, MealPlan, PlannedMeal, GroceryList
-
-
-
-class RecipeBasicSerializer(serializers.ModelSerializer):
-    """Minimal recipe info for meal plan display"""
-    calories = serializers.ReadOnlyField()
+# Create your serializers here.
+class UserProfileSerializer(serializers.ModelSerializer):
+    # Serializer for UserProfile
+    username = serializers.CharField(source='user.username', read_only=True)
+    full_name = serializers.CharField(read_only=True)
+    first_name = serializers.CharField(source='user.first_name', read_only=True)
+    last_name = serializers.CharField(source='user.last_name', read_only=True)
     
     class Meta:
-        model = Recipe
-        fields = ['id', 'name', 'meal_type', 'calories', 'estimated_cost']
-
-
-
-
-class GroceryListSerializer(serializers.ModelSerializer):
-    """Simple grocery list serializer"""
-    class Meta:
-        model = GroceryList
-        fields = ['id', 'name', 'created_at']
-
-
-# MEAL PLAN SERIALIZERS ==========
-
-class PlannedMealSerializer(serializers.ModelSerializer):
-    """Serializer for individual planned meals"""
-    recipe_details = RecipeBasicSerializer(source='recipe', read_only=True)
-    day_name = serializers.SerializerMethodField()
-    
-    class Meta:
-        model = PlannedMeal
+        model = UserProfile
         fields = [
-            'id', 'day_of_week', 'day_name', 'meal_type',
-            'recipe', 'recipe_details', 'custom_notes', 'was_completed'
-        ]
-    
-    def get_day_name(self, obj):
-        """Convert day number to name"""
-        return obj.get_day_of_week_display()
-
-
-class MealPlanSerializer(serializers.ModelSerializer):
-    """Full meal plan serializer with all meals"""
-    meals = PlannedMealSerializer(many=True, read_only=True)
-    week_end_date = serializers.SerializerMethodField()
-    grocery_list = GroceryListSerializer(source='generated_grocery_list', read_only=True)
-    user_name = serializers.CharField(source='user.username', read_only=True)
-    
-    class Meta:
-        model = MealPlan
-        fields = [
-            'id', 'user', 'user_name', 'week_start_date', 'week_end_date',
-            'total_cost_estimate', 'is_active', 'created_at', 'updated_at',
-            'meals', 'grocery_list'
+            'id', 
+            'username', 
+            'first_name',
+            'last_name',
+            'full_name',
+            'date_of_birth',
+            'height',
+            'dietary_preferences',
+            'created_at',
+            'updated_at'
         ]
         read_only_fields = ['created_at', 'updated_at']
+
+
+class UserSerializer(serializers.ModelSerializer):
+    #Serializer for User model with profile data
+    profile = UserProfileSerializer(read_only=True)
+    password = serializers.CharField(write_only=True, required=True, style={'input_type': 'password'})
+    password_confirm = serializers.CharField(write_only=True, required=True, style={'input_type': 'password'})
     
-    def get_week_end_date(self, obj):
-        """Get the Sunday of the plan week"""
-        return obj.week_end_date
-
-
-class CreateMealPlanSerializer(serializers.Serializer):
-    """Serializer for creating a new meal plan"""
-    week_start_date = serializers.DateField(required=False, allow_null=True)
-    regenerate = serializers.BooleanField(default=False)
-    
-    def validate_week_start_date(self, value):
-        """Ensure week start date is a Monday (optional validation)"""
-        if value and value.weekday() != 0:  # 0 = Monday
-            raise serializers.ValidationError("Week start date must be a Monday")
-        return value
-
-
-class SwapMealSerializer(serializers.Serializer):
-    """Serializer for swapping a meal in a plan"""
-    day_of_week = serializers.ChoiceField(choices=[0,1,2,3,4,5,6])
-    meal_type = serializers.ChoiceField(choices=['breakfast', 'lunch', 'dinner', 'snack'])
-    new_recipe_id = serializers.IntegerField(min_value=1)
+    class Meta:
+        model = User
+        fields = [
+            'id',
+            'username',
+            'first_name',
+            'last_name',
+            'password',
+            'password_confirm',
+            'profile',
+            'date_joined'
+        ]
+        read_only_fields = ['date_joined']
     
     def validate(self, data):
-        """Validate that the recipe exists"""
-        from .models import Recipe
-        if not Recipe.objects.filter(id=data['new_recipe_id']).exists():
-            raise serializers.ValidationError({
-                'new_recipe_id': 'Recipe does not exist'
-            })
+        #Validate that passwords match
+        if data.get('password') != data.get('password_confirm'):
+            raise serializers.ValidationError({"password": "Passwords must match."})
         return data
+    
+    def create(self, validated_data):
+        #Create a new user with hashed password
+        validated_data.pop('password_confirm')
+        password = validated_data.pop('password')
+        user = User.objects.create(**validated_data)
+        user.set_password(password)
+        user.save()
+        return user
+
+
+class UserUpdateSerializer(serializers.ModelSerializer):
+    #Serializer for updating basic info
+    
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name']
+
+
+class ProfileUpdateSerializer(serializers.ModelSerializer):
+    #Serializer for updating profile info
+    
+    class Meta:
+        model = UserProfile
+        fields = [
+            'date_of_birth',
+            'height',
+            'dietary_preferences',
+            'favorite_stores'
+        ]
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+    #Serializer for password change
+    old_password = serializers.CharField(required=True, style={'input_type': 'password'})
+    new_password = serializers.CharField(required=True, style={'input_type': 'password'})
+    new_password_confirm = serializers.CharField(required=True, style={'input_type': 'password'})
+    
+    def validate(self, data):
+        #Again validate that passwords match
+        if data['new_password'] != data['new_password_confirm']:
+            raise serializers.ValidationError({"new_password": "New passwords must match."})
+        return data
+>>>>>>> origin/main
