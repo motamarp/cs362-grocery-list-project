@@ -1,5 +1,6 @@
-Lettuce Save - The Busy Student’s Grocery Planner
-Member Details - Group 18
+#Lettuce Save - The Busy Student’s Grocery Planner
+#Member Details - Group 18
+
 Member 1: Piper Winder
 ●	Role: User Experience
 ●	GitHub Username: piper-winder
