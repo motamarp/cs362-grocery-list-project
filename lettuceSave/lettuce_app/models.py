@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
 class UserProfile(models.Model):
@@ -15,7 +16,14 @@ class UserProfile(models.Model):
     height = models.IntegerField(
         blank=True,
         null=True,
-        help_text="Height in inches"
+        help_text="Height in inches",
+        validators=[MinValueValidator(36), MaxValueValidator(96)]
+    )
+    activity_level = models.IntegerField(
+        blank=True,
+        null=True,
+        help_text="Your activity level on a scale of 1-5",
+        validators = [MinValueValidator(1), MaxValueValidator(5)]
     )
     
     # Preferences
