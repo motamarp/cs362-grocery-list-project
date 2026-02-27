@@ -29,6 +29,7 @@ Ideally, having a team member with a specific role as deadline coordinator will 
 # Project Description
 
 **Abstract**
+
 Our project is a grocery-list app that not only helps the user in making meal plans based on their preferences and constraints, it also helps to be more convenient throughout their shopping journey. Instead of being frustrated when you cannot find the specific item you want in a store, our app has the feature that allows you to search which store has the specific brand of item you want to buy, price comparisons, and if it is in stock.
 
 **Goal**
@@ -36,9 +37,9 @@ This system will address the problems that users face when creating and planning
 
 **Current practice**
 Grocery list apps today generally serve the purpose of organization. Please review the list below for applications and their links. They allow you to add or remove, and search up items to develop a purchase plan. Presently, there are several existing grocery list applications that have their own differentiating features. Some of these include sharing lists with family members and friends, notifying the user exactly where aisle items are located, and providing cooking instructions for food recipes. Despite the numerous features of these applications, most do not provide a personalized use and instead serve the user base in general. As students ourselves, we have been a part of many discussions with peers on the challenges of finding cost-efficient and alternative items for personal necessities. According to a study done in 2022 about Prevalence of Food Insecurity at OSU Corvallis, there is an estimated food insecurity rate of 26.6% of student participants (Oregon State University Food Security Study). With this knowledge, creating an Oregon State focused grocery list making application aims to assist such students.
--	Instacart
--	Jow
--	eMeals
+-	[Instacart](https://www.instacart.com)
+-	[Jow](https://jow.com/)
+-	[eMeals](https://emeals.com/ios/)
 
 **Novelty**
 While many other grocery list apps are available, our system is specifically catered towards busy students who wish to eat healthy while both staying cost efficient and saving on time. Thus, we will provide price comparisons for each item in their list. Many grocery lists apps have options to create separate lists for each grocery store, such as Instacart, however, users are still required to parse out the lists themselves manually. We hope to have an interface that provides a comprehensive list that automatically sorts which stores to buy what from. As students ourselves, we know exactly what our targeted audience wants so we will make sure to incorporate our individual preferences throughout the design process. 
