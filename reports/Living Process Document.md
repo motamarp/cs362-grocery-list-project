@@ -6,44 +6,44 @@
 -	GitHub Username: piper-winder
 
 **Member 2: Hilarion Christian Gunawan**
-●	 Role: Deadline coordinator 
-●	GitHub Username: HilarionTech77
+-	 Role: Deadline coordinator 
+-	GitHub Username: HilarionTech77
 
 **Member 3: Paolo Mota Marques**
-●	Role: Quality Assurance Manager
-●	GitHub Username: motamarp
+-	Role: Quality Assurance Manager
+-	GitHub Username: motamarp
 
 **Member 4: Ahman Raines**
-●	Role: Backend/Database
-●	GitHub Username: araines05
+-	Role: Backend/Database
+-	GitHub Username: araines05
 
 **Link to GitHub Repository** - https://github.com/motamarp/cs362-grocery-list-project
 
-Communication 
+**Communication** 
 Microsoft Teams will be used for the majority of the group’s communication, with emphasis on project delegation, management, and development. A group chat will be created as well for immediate logistical communications, so as not to spam documentation on Teams. Members are expected to respond within 24 hours of receiving a message, with reasonable exceptions. For program development, proper block commenting will be implemented along with consistent documentation whenever a commit is pushed. Lastly, we all agree to be respectful and honest with each other, holding each other accountable and asking for help when needed. 
 
-Handling Missed Deadlines
+**Handling Missed Deadlines**
 Ideally, having a team member with a specific role as deadline coordinator will help us make all of our deadlines. In the case that something might not be finished in time, all members are expected to reach out to other team members for assistance and a plan will be made. 
 
 
-Project Description
+# Project Description
 
-Abstract
+**Abstract**
 Our project is a grocery-list app that not only helps the user in making meal plans based on their preferences and constraints, it also helps to be more convenient throughout their shopping journey. Instead of being frustrated when you cannot find the specific item you want in a store, our app has the feature that allows you to search which store has the specific brand of item you want to buy, price comparisons, and if it is in stock.
 
-Goal
+**Goal**
 This system will address the problems that users face when creating and planning their grocery lists. This includes understanding what needs restocking, finding the best option to purchase, and meeting other miscellaneous requirements (such as dietary restrictions). Essentially, users of this app will be granted a more efficient and sustainable way to track groceries in a personalized fashion. This would serve to solve the issues of forgetting to purchase certain necessities, while also easing navigation of dietary restrictions and providing alternatives for items. 
 
-Current practice
+**Current practice**
 Grocery list apps today generally serve the purpose of organization. Please review the list below for applications and their links. They allow you to add or remove, and search up items to develop a purchase plan. Presently, there are several existing grocery list applications that have their own differentiating features. Some of these include sharing lists with family members and friends, notifying the user exactly where aisle items are located, and providing cooking instructions for food recipes. Despite the numerous features of these applications, most do not provide a personalized use and instead serve the user base in general. As students ourselves, we have been a part of many discussions with peers on the challenges of finding cost-efficient and alternative items for personal necessities. According to a study done in 2022 about Prevalence of Food Insecurity at OSU Corvallis, there is an estimated food insecurity rate of 26.6% of student participants (Oregon State University Food Security Study). With this knowledge, creating an Oregon State focused grocery list making application aims to assist such students.
-●	Instacart
-●	Jow
-●	eMeals
+-	Instacart
+-	Jow
+-	eMeals
 
-Novelty
+**Novelty**
 While many other grocery list apps are available, our system is specifically catered towards busy students who wish to eat healthy while both staying cost efficient and saving on time. Thus, we will provide price comparisons for each item in their list. Many grocery lists apps have options to create separate lists for each grocery store, such as Instacart, however, users are still required to parse out the lists themselves manually. We hope to have an interface that provides a comprehensive list that automatically sorts which stores to buy what from. As students ourselves, we know exactly what our targeted audience wants so we will make sure to incorporate our individual preferences throughout the design process. 
 
-Effects
+**Effects**
 This grocery list application will specifically be super beneficial for college students who wish to eat well balanced meals that are cost efficient but don’t have the time or resources to schedule or plan them all on their own. As a student, I end up spending hours planning my shopping lists, determining what recipes are worthwhile, and finding the ingredients at a reasonable price. Our aim is to make grocery shopping and meal planning less of a hassle so that users can focus on things that actually matter to them like school or work. 
 
 Use Cases (Function Requirements)
