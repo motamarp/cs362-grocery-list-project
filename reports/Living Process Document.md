@@ -123,12 +123,14 @@ This grocery list application will specifically be super beneficial for college 
       - **Output:**  Selection of meal plans – Day of week – Meal Titles, Macronutrient display
       - **Logic:** Take recipe and grocery information to make timeline and calculate macronutrients
       - **Dependencies:** Grocery, recipe
+  
+
 - **Interfaces**
   - ZeroMQ will be used for communication between microservices. 
 	  - ZMQ provides peer-to-peer communication, eliminating the need for a separate message broking service
 	  - ZMQ is universal; it works with all languages
       - Provides sockets to setup in each microservice for easy communication
- - Alternative: RabbitMQ
+   - Alternative: RabbitMQ
 	  - Pros:
 	 	 - Provides a user-friendly UI for easier management
    		 - Supports multiple protocols
@@ -136,23 +138,23 @@ This grocery list application will specifically be super beneficial for college 
       - Cons:
 		 - Considered to have a steep learning curve
 		 - Degraded performance with large amounts of data
- - React will also be used for frontend and backend communication. 
-	  - Allows us to take our components and individually render them through the browser to create specified pages
+      - React will also be used for frontend and backend communication. 
+	      - Allows us to take our components and individually render them through the browser to create specified pages
 - **Data Storage**
   - Stored Data:
 	  - Information provided for profile creation:
-             - This data is collected from the user’s input in the profile creation. 
+ 		  - This data is collected from the user’s input in the profile creation. 
       - Recipe:
-             - This data is collected from existing recipes. However, user can also upload their recipes 
+          - This data is collected from existing recipes. However, user can also upload their recipes 
       - Grocery/ ingredients:
-             - This data contains the information on ingredients that are uuto-generated based on the recipe data from the active meal_plan. It could also be manually modified when users use want to use alternative ingredients
+          - This data contains the information on ingredients that are uuto-generated based on the recipe data from the active meal_plan. It could also be manually modified when users use want to use alternative ingredients
   - Database to be used: 
       - **Django** – Backend framework with python, React – frontend framework. We will also potentially use Scrapy to attain data from websites to compile grocery data. 
   - Alternatives: 
      - **Flask** – Backend / Frontend features. 
         - Pros:
-             - Readily available documentation for setting up a minimal application
-             - Easy to integrate individual adaptions
+           - Readily available documentation for setting up a minimal application
+           - Easy to integrate individual adaptions
         - Cons:
              - Not “batteries-included,” which means it doesn’t come with all necessary installations 
 		     - No data and file management structure readily available
