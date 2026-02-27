@@ -59,7 +59,48 @@ This grocery list application will specifically be super beneficial for college 
 
 | **template** |
 |-----------------------|
-| |
+|   
+
+1. <ins>Actors:</ins>
+	<br>
+2. <ins>Triggers:</ins>
+   <br>
+3. <ins>Preconditions</ins>
+   <br>
+4. <ins>Post Conditions:</ins>
+   <br>
+5. <ins>Success Scenario:</ins>
+   <ol type="a"><li>  
+   </li>
+	<li>
+		   text
+	</li>
+   <li>
+	   
+   </li>
+   
+   <li>
+	   
+   </li></ol> 
+6. <ins>Extensions/variations</ins>
+   <ol type="a">
+     <li>
+      The user restores a meal plan / list that is no longer being stored
+     </li>
+     <li>
+      The system sets a selected list or meal plan as the current one
+     </li>
+   </ol> 
+   
+    7. <ins>Exceptions/Failures</ins>
+   <ol type="a">
+     <li>
+      No saved information (meal plan or grocery list exists)
+     </li>
+     <li>
+       The system would display a message stating: “No history available”
+     </li>
+   </ol>    |
 
 
 
@@ -67,12 +108,68 @@ This grocery list application will specifically be super beneficial for college 
 
 | **Profile Modification**|
 |----------------------|
-| 1.  <ins>Actors:</ins> New user that wishes to meal plan with specific specifications<br> 2. <ins>Triggers:</ins> User is prompted to create a profile <br>3. <ins>Preconditions</ins>: User wishes to use application, application is open, no current profile has been created <br>4. <ins>Post Conditions</ins>: User confirms profile specifications once all needed information is provided and preferences were selected, immediately brought to main dashboard <br>5. <ins>Success Scenario (Ideal):</ins> <ol type="a"><li>Default creation</li><li>User inputs all needed information (age, sex, height, etc)</li><li>User reviews all optional toggle specifications (build, budget, dietary restrictions, activity level, etc) and curates it to themselves</li><li>User clicks the save profile button and has access to main dashboard</li></ol> 6. <ins>Variation of success scenarios:</ins> <ol type="a"><li>Default creation<ol type="i"><li>User opens application and is prompted to create a profile (clicks button)</li><li>User inputs all needed information (age, sex, height, etc)</li><li>User keeps all other specifications on their default setting</li><li>User clicks the save profile button and has access to main dashboard</li></ol></li><li>Change preferences<ol type="i"><li>User opens profile settings page</li><li>User reviews specifications and changes certain options to better fit their goals</li><li>User clicks the save profile button</li></ol></li></ol>7. <ins>Exceptions: Failure conditions</ins> <ol type="a"><li>Closing Window<ol type="i"><li>User gets overwhelmed with requirements and leaves application</li><li>User inputs all needed information (age, sex, height, etc)</li><li>All possible inputs are erased, no profile has been created</li></ol></li><li>Missing Information<ol type="i"><li>User opens application and is prompted to create a profile (clicks button)</li><li>User inputs almost all specifications but age</li><li>User keeps all other specifications on their default setting</li><li>User clicks the save profile button but an error pops up due to missing information</li><li>User is unable to create profile until required fields are full</li></ol></li></ol>
+| 1.  <ins>Actors:</ins> New user that wishes to meal plan with specific specifications<br> 2. <ins>Triggers:</ins> User is prompted to create a profile <br>3. <ins>Preconditions</ins>: User wishes to use application, application is open, no current profile has been created <br>4. <ins>Post Conditions</ins>: User confirms profile specifications once all needed information is provided and preferences were selected, immediately brought to main dashboard <br>5. <ins>Success Scenario (Ideal):</ins> <ol type="a"><li>Default creation</li><li>User inputs all needed information (age, sex, height, etc)</li><li>User reviews all optional toggle specifications (build, budget, dietary restrictions, activity level, etc) and curates it to themselves</li><li>User clicks the save profile button and has access to main dashboard</li></ol> 6. <ins>Variation of success scenarios:</ins> <ol type="a"><li>Default creation<ol type="i"><li>User opens application and is prompted to create a profile (clicks button)</li><li>User inputs all needed information (age, sex, height, etc)</li><li>User keeps all other specifications on their default setting</li><li>User clicks the save profile button and has access to main dashboard</li></ol></li><li>Change preferences<ol type="i"><li>User opens profile settings page</li><li>User reviews specifications and changes certain options to better fit their goals</li><li>User clicks the save profile button</li></ol></li></ol>7. <ins>Exceptions: Failure conditions</ins> <ol type="a"><li>Closing Window<ol type="i"><li>User opens application and is prompted to create a profile (clicks button)</li><li>User leaves app, no changes are saved </li><li>All possible inputs are erased, no profile has been created</li></ol></li><li>Missing Information<ol type="i"><li>User opens application and is prompted to create a profile (clicks button)</li><li>User inputs almost all specifications but age</li><li>User keeps all other specifications on their default setting</li><li>User clicks the save profile button but an error pops up due to missing information</li><li>User is unable to create profile until required fields are full</li></ol></li></ol>
 
 | **Meal & Grocery Planning** |
 |-----------------------|
-| 1. <ins>Actors:</ins> User that needs to figure out what they will be eating for the upcoming week<br> 2. <ins>Triggers:</ins> User clicks the “create meal plan” button<br>3. <ins>Preconditions</ins>: User profile exists, known recipes database exists<br>4. <ins>Post Conditions</ins>: Meals have been planned for the week, ingredient list has been compiled and organized by store, estimate of total cost is displayed<br>5. <ins>Success Scenario (Ideal):</ins> <ol type="a"><li>User decided to create meal plan (clicks create button)</li><li>User reviews automated meals recommendations and makes swaps or modifications</li><li>User reviews automated grocery list and makes swaps or modifications</li><li>User saves meal plan</li></ol> 6. <ins>Extensions/variations</ins> <ol type="a"><li>Edit meal plan<ol type="i"><li>User decides to edit meal plan (clicks edit button)</li><li>User makes changes to either meals planned or ingredients list</li><li>User saves meal plan</li><li>User clicks the save profile button and has access to main dashboard</li></ol></li><li>Change preferences<ol type="i"><li>User opens profile settings page</li><li>User reviews specifications and changes certain options to better fit their goals</li><li>User clicks the save profile button</li></ol></li></ol>7. <ins>Exceptions/Failure</ins> <ol type="a"><li>Closes app<ol type="i"><li>User decides to edit meal plan (clicks edit button)
-</li><li>User makes changes to either meals planned or ingredients list</li><li>User leaves app, no changes are saved </li></ol></li><li>Missing Information<ol type="i"><li>User opens application and is prompted to create a profile (clicks button)</li><li>User inputs almost all specifications but age</li><li>User keeps all other specifications on their default setting</li><li>User clicks the save profile button but an error pops up due to missing information</li><li>User is unable to create profile until required fields are full</li></ol></li></ol>|
+| 1. <ins>Actors:</ins> User that needs to figure out what they will be eating for the upcoming week<br> 2. <ins>Triggers:</ins> User clicks the “create meal plan” button<br>3. <ins>Preconditions:</ins> User profile exists, known recipes database exists<br>4. <ins>Post Conditions:</ins> Meals have been planned for the week, ingredient list has been compiled and organized by store, estimate of total cost is displayed<br>5. <ins>Success Scenario (Ideal):</ins> <ol type="a"><li>User decided to create meal plan (clicks create button)</li><li>User reviews automated meals recommendations and makes swaps or modifications</li><li>User reviews automated grocery list and makes swaps or modifications</li><li>User saves meal plan</li></ol> 6. <ins>Extensions/variations</ins> <ol type="a"><li>Edit meal plan<ol type="i"><li>User decides to edit meal plan (clicks edit button)</li><li>User makes changes to either meals planned or ingredients list</li><li>User saves meal plan</li></ol></li></ol>7. <ins>Exceptions/Failure</ins> <ol type="a"><li>Closes app<ol type="i"><li>User decides to edit meal plan (clicks edit button)</li><li>User makes changes to either meals planned or ingredients list</li><li>User leaves app, no changes are saved </li></ol></li></ol>|
+
+
+| **Logging** |
+|-----------------------|
+| 1. <ins>Actors:</ins>User wishes to interact with meal plan and grocery list (adding notes, if plan has been followed, recipe review)<br> 2. <ins>Triggers:</ins>User clicks the “add notes” button<br>3. <ins>Preconditions</ins> The user has already chosen a meal plan and grocery list <br> 4. <ins>Post Conditions:</ins>  An actionable sticky note icon will appear next to the user’s meal plan and or grocery list  <br>5. <ins>Success Scenario (Ideal):</ins> <ol type="a"><li>The user wishes to create a note (clicks a note )</li><li>User is given a prompt on where this note is to be attached to (meal plan or grocery list) </li><li>User is brought to “notes page” where they can type</li><li>User saves notes</li></ol> 6. <ins>Extensions/variations</ins> <ol type="a"><li>User edits the notes:<ol type="i"><li>User presses the sticky note icon</li><li>User presses the edit button and change what they wrote</li><li>User saves edited notes</li></ol></li></ol>7. <ins>Exceptions/Failure</ins> <ol type="a"><li>Unsaved notes:<ol type="i"><li>User presses the sticky note icon</li><li>User save edited notes</li><li>The application doesn’t register so it still presents the “old” notes instead of the new edited ones</li></ol></li></ol>|
+
+
+
+
+| **Review History** |
+|-----------------------|
+|   
+
+1. <ins>Actors:</ins>
+	<br>
+2. <ins>Triggers:</ins>
+   <br>
+3. <ins>Preconditions</ins>
+   <br>
+4. <ins>Post Conditions:</ins>
+   <br>
+5. <ins>Success Scenario:</ins>
+   <ol type="a"><li>  
+   </li>
+	<li>
+		   text
+	</li>
+   <li>
+	   
+   </li>
+   
+   <li>
+	   
+   </li></ol> 
+
+
+
+
+6. <ins>Extensions/variations</ins>
+   <ol type="a">
+     <li>
+      The user restores a meal plan / list that is no longer being stored
+     </li>
+     <li>
+      The system sets a selected list or meal plan as the current one
+     </li>
+   </ol> 
+   
+    7. <ins>Exceptions/Failures</ins>
+   <ol type="a">
+     <li>
+      No saved information (meal plan or grocery list exists)
+     </li>
+     <li>
+       The system would display a message stating: “No history available”
+     </li>
+   </ol>    |
 
 
 
@@ -80,6 +177,7 @@ This grocery list application will specifically be super beneficial for college 
 
 
 //template<ins>Variation of success scenarios:</ins> 
+   6. <ins>Extensions/variations</ins>
    <ol type="a">
      <li>
        Default creation
@@ -98,53 +196,14 @@ This grocery list application will specifically be super beneficial for college 
          <li>User clicks the save profile button</li>
        </ol>
      </li>
-   </ol>//
+   </ol>  //
 
 
 
 <ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><br> <br><br> <br> <br> <br> <br> <br><br> <br>|
 
 
-a.	Default creation 
-i.	User opens application and is prompted to create a profile (clicks button)
-ii.	User inputs all needed information (age, sex, height, etc)
-iii.	User keeps all other specifications on their default setting
-iv.	User clicks the save profile button and has access to main dashboard
-b.	Change preferences
-i.	User opens profile settings page
-ii.	User reviews specifications and changes certain options to better fit their goals
-iii.	User clicks the save profile button
-7.	Exceptions: Failure conditions
-a.	Closing Window
-i.	User opens application and is prompted to create a profile (clicks button)
-ii.	User gets overwhelmed with requirements and leaves application
-iii.	All possible inputs are erased, no profile has been created
-b.	Missing Information
-i.	User opens application and is prompted to create a profile (clicks button)
-ii.	User inputs almost all specifications but age
-iii.	User keeps all other specifications on their default setting
-iv.	User clicks the save profile button but an error pops up due to missing information
-v.	User is unable to create profile until required fields are full
-Meal & Grocery Planning
-1.	Actors: User that needs to figure out what they will be eating for the upcoming week
-2.	Triggers: User clicks the “create meal plan” button
-3.	Preconditions: User profile exists, known recipes database exists
-4.	Postconditions: Meals have been planned for the week, ingredient list has been compiled and organized by store, estimate of total cost is displayed
-5.	Success Scenario: 
-a.	User decided to create meal plan (clicks create button)
-b.	User reviews automated meals recommendations and makes swaps or modifications 
-c.	User reviews automated grocery list and makes swaps or modifications
-d.	User saves meal plan
-6.	Extensions/variations
-a.	Edit meal plan
-i.	User decides to edit meal plan (clicks edit button)
-ii.	User makes changes to either meals planned or ingredients list
-iii.	User saves meal plan
-7.	Exceptions/Failures 
-a.	Closes app
-i.	User decides to edit meal plan (clicks edit button)
-ii.	User makes changes to either meals planned or ingredients list
-iii.	User leaves app, no changes are saved 
+
 Logging
 1.	Actors: User wishes to interact with meal plan and grocery list (adding notes, if plan has been followed, recipe review)
 2.	Triggers: User clicks the “add notes” button
