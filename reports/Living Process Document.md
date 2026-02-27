@@ -1,23 +1,23 @@
 # Lettuce Save - The Busy Student’s Grocery Planner
-#Member Details - Group 18
+# Member Details - Group 18
 
-Member 1: Piper Winder
+**Member 1: Piper Winder**
 ●	Role: User Experience
 ●	GitHub Username: piper-winder
 
-Member 2: Hilarion Christian Gunawan
+**Member 2: Hilarion Christian Gunawan**
 ●	 Role: Deadline coordinator 
 ●	GitHub Username: HilarionTech77
 
-Member 3: Paolo Mota Marques
+**Member 3: Paolo Mota Marques**
 ●	Role: Quality Assurance Manager
 ●	GitHub Username: motamarp
 
-Member 4: Ahman Raines
+**Member 4: Ahman Raines**
 ●	Role: Backend/Database
 ●	GitHub Username: araines05
 
-Link to GitHub Repository - https://github.com/motamarp/cs362-grocery-list-project
+**Link to GitHub Repository** - https://github.com/motamarp/cs362-grocery-list-project
 
 Communication 
 Microsoft Teams will be used for the majority of the group’s communication, with emphasis on project delegation, management, and development. A group chat will be created as well for immediate logistical communications, so as not to spam documentation on Teams. Members are expected to respond within 24 hours of receiving a message, with reasonable exceptions. For program development, proper block commenting will be implemented along with consistent documentation whenever a commit is pushed. Lastly, we all agree to be respectful and honest with each other, holding each other accountable and asking for help when needed. 
