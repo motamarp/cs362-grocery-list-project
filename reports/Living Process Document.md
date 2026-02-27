@@ -2,8 +2,8 @@
 # Member Details - Group 18
 
 **Member 1: Piper Winder**
-●	Role: User Experience
-●	GitHub Username: piper-winder
+-	Role: User Experience
+-	GitHub Username: piper-winder
 
 **Member 2: Hilarion Christian Gunawan**
 ●	 Role: Deadline coordinator 
