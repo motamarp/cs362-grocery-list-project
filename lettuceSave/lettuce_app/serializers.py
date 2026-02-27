@@ -19,6 +19,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'last_name',
             'full_name',
             'date_of_birth',
+            'activity_level',
             'height',
             'dietary_preferences',
             'created_at',
@@ -79,6 +80,7 @@ class ProfileUpdateSerializer(serializers.ModelSerializer):
         fields = [
             'date_of_birth',
             'height',
+            'activity_level'
             'dietary_preferences',
             'favorite_stores'
         ]
