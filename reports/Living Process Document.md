@@ -56,59 +56,9 @@ This grocery list application will specifically be super beneficial for college 
 **Use Cases (Function Requirements)**
 
 
-
-| **template** |
-|-----------------------|
-|   
-
-1. <ins>Actors:</ins>
-	<br>
-2. <ins>Triggers:</ins>
-   <br>
-3. <ins>Preconditions</ins>
-   <br>
-4. <ins>Post Conditions:</ins>
-   <br>
-5. <ins>Success Scenario:</ins>
-   <ol type="a"><li>  
-   </li>
-	<li>
-		   text
-	</li>
-   <li>
-	   
-   </li>
-   
-   <li>
-	   
-   </li></ol> 
-6. <ins>Extensions/variations</ins>
-   <ol type="a">
-     <li>
-      The user restores a meal plan / list that is no longer being stored
-     </li>
-     <li>
-      The system sets a selected list or meal plan as the current one
-     </li>
-   </ol> 
-   
-    7. <ins>Exceptions/Failures</ins>
-   <ol type="a">
-     <li>
-      No saved information (meal plan or grocery list exists)
-     </li>
-     <li>
-       The system would display a message stating: “No history available”
-     </li>
-   </ol>    |
-
-
-
-
-
 | **Profile Modification**|
 |----------------------|
-| 1.  <ins>Actors:</ins> New user that wishes to meal plan with specific specifications<br> 2. <ins>Triggers:</ins> User is prompted to create a profile <br>3. <ins>Preconditions</ins>: User wishes to use application, application is open, no current profile has been created <br>4. <ins>Post Conditions</ins>: User confirms profile specifications once all needed information is provided and preferences were selected, immediately brought to main dashboard <br>5. <ins>Success Scenario (Ideal):</ins> <ol type="a"><li>Default creation</li><li>User inputs all needed information (age, sex, height, etc)</li><li>User reviews all optional toggle specifications (build, budget, dietary restrictions, activity level, etc) and curates it to themselves</li><li>User clicks the save profile button and has access to main dashboard</li></ol> 6. <ins>Variation of success scenarios:</ins> <ol type="a"><li>Default creation<ol type="i"><li>User opens application and is prompted to create a profile (clicks button)</li><li>User inputs all needed information (age, sex, height, etc)</li><li>User keeps all other specifications on their default setting</li><li>User clicks the save profile button and has access to main dashboard</li></ol></li><li>Change preferences<ol type="i"><li>User opens profile settings page</li><li>User reviews specifications and changes certain options to better fit their goals</li><li>User clicks the save profile button</li></ol></li></ol>7. <ins>Exceptions: Failure conditions</ins> <ol type="a"><li>Closing Window<ol type="i"><li>User opens application and is prompted to create a profile (clicks button)</li><li>User leaves app, no changes are saved </li><li>All possible inputs are erased, no profile has been created</li></ol></li><li>Missing Information<ol type="i"><li>User opens application and is prompted to create a profile (clicks button)</li><li>User inputs almost all specifications but age</li><li>User keeps all other specifications on their default setting</li><li>User clicks the save profile button but an error pops up due to missing information</li><li>User is unable to create profile until required fields are full</li></ol></li></ol>
+| 1.  <ins>Actors:</ins> New user that wishes to meal plan with specific specifications<br> 2. <ins>Triggers:</ins> User is prompted to create a profile <br>3. <ins>Preconditions</ins>: User wishes to use application, application is open, no current profile has been created <br>4. <ins>Post Conditions</ins>: User confirms profile specifications once all needed information is provided and preferences were selected, immediately brought to main dashboard <br>5. <ins>Success Scenario (Ideal):</ins> <ol type="a"><li>Default creation</li><li>User inputs all needed information (age, sex, height, etc)</li><li>User reviews all optional toggle specifications (build, budget, dietary restrictions, activity level, etc) and curates it to themselves</li><li>User clicks the save profile button and has access to main dashboard</li></ol> 6. <ins>Variation of success scenarios:</ins> <ol type="a"><li>Default creation<ol type="i"><li>User opens application and is prompted to create a profile (clicks button)</li><li>User inputs all needed information (age, sex, height, etc)</li><li>User keeps all other specifications on their default setting</li><li>User clicks the save profile button and has access to main dashboard</li></ol></li><li>Change preferences<ol type="i"><li>User opens profile settings page</li><li>User reviews specifications and changes certain options to better fit their goals</li><li>User clicks the save profile button</li></ol></li></ol>7. <ins>Exceptions: Failure conditions</ins> <ol type="a"><li>Closing Window<ol type="i"><li>User opens application and is prompted to create a profile (clicks button)</li><li>User gets overwhelmed with requirements and leaves application </li><li>All possible inputs are erased, no profile has been created</li></ol></li><li>Missing Information<ol type="i"><li>User opens application and is prompted to create a profile (clicks button)</li><li>User inputs almost all specifications but age</li><li>User keeps all other specifications on their default setting</li><li>User clicks the save profile button but an error pops up due to missing information</li><li>User is unable to create profile until required fields are full</li></ol></li></ol>
 
 | **Meal & Grocery Planning** |
 |-----------------------|
@@ -117,222 +67,106 @@ This grocery list application will specifically be super beneficial for college 
 
 | **Logging** |
 |-----------------------|
-| 1. <ins>Actors:</ins>User wishes to interact with meal plan and grocery list (adding notes, if plan has been followed, recipe review)<br> 2. <ins>Triggers:</ins>User clicks the “add notes” button<br>3. <ins>Preconditions</ins> The user has already chosen a meal plan and grocery list <br> 4. <ins>Post Conditions:</ins>  An actionable sticky note icon will appear next to the user’s meal plan and or grocery list  <br>5. <ins>Success Scenario (Ideal):</ins> <ol type="a"><li>The user wishes to create a note (clicks a note )</li><li>User is given a prompt on where this note is to be attached to (meal plan or grocery list) </li><li>User is brought to “notes page” where they can type</li><li>User saves notes</li></ol> 6. <ins>Extensions/variations</ins> <ol type="a"><li>User edits the notes:<ol type="i"><li>User presses the sticky note icon</li><li>User presses the edit button and change what they wrote</li><li>User saves edited notes</li></ol></li></ol>7. <ins>Exceptions/Failure</ins> <ol type="a"><li>Unsaved notes:<ol type="i"><li>User presses the sticky note icon</li><li>User save edited notes</li><li>The application doesn’t register so it still presents the “old” notes instead of the new edited ones</li></ol></li></ol>|
-
+| 1. <ins>Actors:</ins> User wishes to interact with meal plan and grocery list (adding notes, if plan has been followed, recipe review)<br> 2. <ins>Triggers:</ins> User clicks the “add notes” button<br>3. <ins>Preconditions</ins> The user has already chosen a meal plan and grocery list <br> 4. <ins>Post Conditions:</ins>  An actionable sticky note icon will appear next to the user’s meal plan and or grocery list  <br>5. <ins>Success Scenario (Ideal):</ins> <ol type="a"><li> The user wishes to create a note (clicks a note )</li><li> User is given a prompt on where this note is to be attached to (meal plan or grocery list) </li><li>User is brought to “notes page” where they can type</li><li> User saves notes</li></ol> 6. <ins>Extensions/variations</ins> <ol type="a"><li> User edits the notes:<ol type="i"><li>User presses the sticky note icon</li><li> User presses the edit button and change what they wrote</li><li> User saves edited notes</li></ol></li></ol>7. <ins>Exceptions/Failure</ins> <ol type="a"><li>Unsaved notes:<ol type="i"><li> User presses the sticky note icon</li><li> User save edited notes</li><li>The application doesn’t register so it still presents the “old” notes instead of the new edited ones</li></ol></li></ol>|
 
 
 
 | **Review History** |
 |-----------------------|
-|   
-
-1. <ins>Actors:</ins>
-	<br>
-2. <ins>Triggers:</ins>
-   <br>
-3. <ins>Preconditions</ins>
-   <br>
-4. <ins>Post Conditions:</ins>
-   <br>
-5. <ins>Success Scenario:</ins>
-   <ol type="a"><li>  
-   </li>
-	<li>
-		   text
-	</li>
-   <li>
-	   
-   </li>
-   
-   <li>
-	   
-   </li></ol> 
+| 1. <ins>Actors:</ins> User that wants to see the changes they have made for their meal plan / list<br>2. <ins>Triggers:</ins> User hits the “Review History” button from homepage<br>3. <ins>Preconditions:</ins> User made (and saved) a meal plan / grocery list before<br>4. <ins>Post Conditions:</ins>The previously saved information is displayed to the user<br>5. <ins>Success Scenario:</ins><ol type="a"><li> User clicks the “Review History” button</li><li>The system displays the information in the saved list(s)</li><li> User selects one of the meal plans / lists to inspect for more detail</li></ol> 6. <ins>Extensions/variations</ins><ol type="a"><li>The user restores a meal plan / list that is no longer being stored</li><li>The system sets a selected list or meal plan as the current one</li></ol> 7. <ins>Exceptions/Failures</ins><ol type="a"><li>No saved information (meal plan or grocery list exists)</li><li>The system would display a message stating: “No history available”</li></ol>    |
 
 
 
-
-6. <ins>Extensions/variations</ins>
-   <ol type="a">
-     <li>
-      The user restores a meal plan / list that is no longer being stored
-     </li>
-     <li>
-      The system sets a selected list or meal plan as the current one
-     </li>
-   </ol> 
-   
-    7. <ins>Exceptions/Failures</ins>
-   <ol type="a">
-     <li>
-      No saved information (meal plan or grocery list exists)
-     </li>
-     <li>
-       The system would display a message stating: “No history available”
-     </li>
-   </ol>    |
+| **Returning User** |
+|-----------------------|
+| 1. <ins>Actors:</ins> User returning to the application<br>2. <ins>Triggers:</ins> Application opens<br>3. <ins>Preconditions</ins> User profile exists before opening application<br>4. <ins>Post Conditions:</ins> User profile and most recent plan are loaded<br>5. <ins>Success Scenario:</ins><ol type="a"><li>  User opens application </li><li>Systems loads profile data </li><li>System opens homepage with saved data</li></ol> 6.<ins>Extensions/variations</ins><ol type="a"><li>Login Information change</ol> 7. <ins>Exceptions/Failures</ins><ol type="a"><li>User profile is not loaded correctly</li><li> No saved account information was loaded</li><li>No saved account information was loaded</li></ol>    |
 
 
-
-
-
-
-//template<ins>Variation of success scenarios:</ins> 
-   6. <ins>Extensions/variations</ins>
-   <ol type="a">
-     <li>
-       Default creation
-       <ol type="i">
-         <li>User opens application and is prompted to create a profile (clicks button)</li>
-         <li>User inputs all needed information (age, sex, height, etc)</li>
-         <li>User keeps all other specifications on their default setting</li>
-         <li>User clicks the save profile button and has access to main dashboard</li>
-       </ol>
-     </li>
-     <li>
-       Change preferences
-       <ol type="i">
-         <li>User opens profile settings page</li>
-         <li>User reviews specifications and changes certain options to better fit their goals</li>
-         <li>User clicks the save profile button</li>
-       </ol>
-     </li>
-   </ol>  //
-
-
-
-<ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><br> <br><br> <br> <br> <br> <br> <br><br> <br>|
-
-
-
-Logging
-1.	Actors: User wishes to interact with meal plan and grocery list (adding notes, if plan has been followed, recipe review)
-2.	Triggers: User clicks the “add notes” button
-3.	Preconditions: The user has already chosen a meal plan and grocery list 
-4.	Postconditions: An actionable sticky note icon will appear next to the user’s meal plan and or grocery list 
-5.	Success Scenario: 
-a.	The user wishes to create a note (clicks a note )
-b.	 User is given a prompt on where this note is to be attached to (meal plan or grocery list) 
-c.	User is brought to “notes page” where they can type
-d.	User saves notes
-6.	Extensions/variations:
-a.	User edits the notes:
-i.	User presses the sticky note icon
-ii.	User presses the edit button and change what they wrote
-iii.	User saves edited notes
-7.	Exceptions/Failures
-a.	Unsaved notes:
-i.	User presses the sticky note icon
-ii.	User save edited notes
-iii.	The application doesn’t register so it still presents the “old” notes instead of the new edited ones
-Review History
-1.	Actors: User that wants to see the changes they have made for their meal plan / list
-2.	Triggers: User hits the “Review History” button from homepage
-3.	Preconditions: User made (and saved) a meal plan / grocery list before
-4.	Postconditions: The previously saved information is displayed to the user
-5.	Success Scenario
-a.	User clicks the “Review History” button
-b.	The system displays the information in the saved list(s)
-c.	User selects one of the meal plans / lists to inspect for more detail
-6.	Extensions/variations
-a.	The user restores a meal plan / list that is no longer being stored
-b.	The system sets a selected list or meal plan as the current one
-7.	Exceptions/Failures
-a.	No saved information (meal plan or grocery list exists)
-b.	The system would display a message stating: “No history available” 
-Returning User
-1.	Actors: User returning to the application
-2.	Triggers: Application opens
-3.	Preconditions: User profile exists before opening application
-4.	Postconditions: User profile and most recent plan are loaded
-5.	Success Scenario 
-a.	User opens application 
-b.	Systems loads profile data 
-c.	System opens homepage with saved data
-6.	Extensions/Variations
-a.	Login Information change
-7.	Exceptions/Failures
-a.	User profile is not loaded correctly
-b.	No saved account information was loaded
-c.	User is unable to login
 
 **Non-functional Requirement**
 - <ins>Reliability</ins>: Application is able to compile and run 99% of the time with all proper data saved. Under normal circumstances, all the core components like the recipe / list upload and history review should be working without issue or delay of some kind.
-- <ins>Usability:</ins> Users must be able to intuitively navigate the application, it will take first time users less than 5 minutes to create a generalized meal plan (no specifications). Users shouldn’t need to take more than a couple seconds to understand what each button leads to in the application (e.g. review history). Users should be able to complete an account and understand the main functions of the app within 60 seconds of opening it.  Source Regarding User Onboarding 
+- <ins>Usability:</ins> Users must be able to intuitively navigate the application, it will take first time users less than 5 minutes to create a generalized meal plan (no specifications). Users shouldn’t need to take more than a couple seconds to understand what each button leads to in the application (e.g. review history). Users should be able to complete an account and understand the main functions of the app within 60 seconds of opening it.  [Source Regarding User Onboarding](https://thisisglance.com/learning-centre/how-long-should-my-apps-onboarding-process-be)
 -	<ins>Performance:</ins> New pages must load within 3 seconds of opening or swapping. Additionally, any background work such as restocking suggestions shouldn’t slow the application performance.
 -	<ins>Portability:</ins> Application can be accessible on multiple devices (phone, desktop, etc) with conventional methods. It should maintain the same general structure on the application no matter how it is accessed. 
+
 
 **External Requirements**
 -	<ins>Compliance and Data Integrity:</ins> Possible user input errors are expected and user is provided alerts in such cases
 -	<ins>Barrier to entry:</ins> The product is easily accessible for users to download, install, and run from the App Store, Google Play, and Windows.
 -	<ins>Documentation:</ins> System is well documented to allow new developers to maintain and modify it
 
-**Software Architecture**
-	Major components
-○	Creating Profile / Returning User:
-■	Purpose/responsibility: Provides user access to application with data that is specific to them
-■	Input specs: Height, weight, age, gender, lifestyle, budget
-■	Output: Aggregated biometrics stored, profile created
-■	Logic: Compilation of biometrics to later generate recommendations (see recipe/list upload)
-■	Dependencies: Review History, Uploads
-○	Recipe / List Upload & Display: 
-■	Purpose/Responsibility: Allows the user to upload grocery / recipe ingredient lists which are displayed on the home-page. 
-■	Input specs: Aggregate biometrics from profile, user adds item(s) to list based on suggestions / custom choices from search feature
-■	Output: Information displayed on user’s current grocery list, and meal planner
-■	Logic: Take profile information and generate meal plan recommendations along with related grocery list
-■	Dependencies: Grocery, Review History, Profile
-○	Grocery / Ingredient Search:
-■	Purpose/Responsibility: Allows users to look through possible ingredient alternatives and add them to their lists
-■	Input specs: Ingredient name
-■	Output: Compiled list of ingredients from created meal plan with changes implemented
-■	Logic: Compare strings and filter
-■	Dependencies: Recipe, Grocery store database(s)
-○	Review History:
-■	Purpose/Responsibility: Allows the user to see detailed information of previous meal plans and diet for every meal
-■	Input specs: Stored information of past and current meal plans, review history button
-■	Output: Selection of meal plans – Day of week – Meal Titles, Macronutrient display
-■	Logic: Take recipe and grocery information to make timeline and calculate macronutrients
-■	Dependencies: Grocery, recipe
-Interfaces 
-○	ZeroMQ will be used for communication between microservices. 
-■	ZMQ provides peer-to-peer communication, eliminating the need for a separate message broking service
-■	ZMQ is universal; it works with all languages
-■	Provides sockets to setup in each microservice for easy communication
-○	Alternative: RabbitMQ
-■	Pros:
-●	Provides a user-friendly UI for easier management
-●	Supports multiple protocols
-●	Popular; Lots of resources online regarding troubleshooting/setup
-■	Cons:
-●	Considered to have a steep learning curve
-●	Degraded performance with large amounts of data
-○	React will also be used for frontend and backend communication. 
-■	Allows us to take our components and individually render them through the browser to create specified pages
-	Data Storage
-○	Stored Data: 
-■	Information provided for profile creation:
-●	This data is collected from the user’s input in the profile creation. 
-■	Recipe:
-●	This data is collected from existing recipes. However, user can also upload their recipes 
-■	Grocery/ ingredients:
-●	This data contains the information on ingredients that are uuto-generated based on the recipe data from the active meal_plan. It could also be manually modified when users use want to use alternative ingredients
-○	Database to be used: 
-■	Django – Backend framework with python, React – frontend framework. We will also potentially use Scrapy to attain data from websites to compile grocery data. 
-○	Alternatives: 
-■	Flask – Backend / Frontend features. 
-●	Pros: 
-○	Readily available documentation for setting up a minimal application
-○	Easy to integrate individual adaptions
-●	Cons:
-○	Not “batteries-included,” which means it doesn’t come with all necessary installations 
-○	No data and file management structure readily available
-■	Reflex – Another potential frontend framework.
-●	Pros:
-○	No need for additional Javascript or other languages, all 100% python building
-○	Offers database management features such as routing/state management 
-●	Cons:
-○	Debugging complexity increased
-○	“Newer” framework with potential issues that may not be fixed by conventional means 
-■	Less documentation 
+
+**Software Architecture:**
+
+- **Major Component**
+    - <ins>Creating Profile / Returning User:</ins>
+	  - **Purpose/responsibility:** Provides user access to application with data that is specific to them 
+	  - **Input specs:** Height, weight, age, gender, lifestyle, budget
+      - **Output:** Aggregated biometrics stored, profile created
+      - **Logic:** Compilation of biometrics to later generate recommendations (see recipe/list upload)
+      - **Dependencies:** Review History, Uploads
+   - <ins>Recipe / List Upload & Display: </ins>
+	  - **Purpose/responsibility:** Allows the user to upload grocery / recipe ingredient lists which are displayed on the home-page.  
+	  - **Input specs:** Aggregate biometrics from profile, user adds item(s) to list based on suggestions / custom choices from search feature
+      - **Output:** Information displayed on user’s current grocery list, and meal planner
+      - **Logic:** Take profile information and generate meal plan recommendations along with related grocery list
+      - **Dependencies:** Grocery, Review History, Profile
+   - <ins>Grocery / Ingredient Search:</ins>
+      - **Purpose/responsibility:**  Allows users to look through possible ingredient alternatives and add them to their lists
+	  - **Input specs:** Ingredient name
+      - **Output:** Compiled list of ingredients from created meal plan with changes implemented
+      - **Logic:**  Compare strings and filter
+      - **Dependencies:**  Recipe, Grocery store database(s)
+	- <ins>Review History:</ins>
+      - **Purpose/responsibility:**  Allows the user to see detailed information of previous meal plans and diet for every meal
+	  - **Input specs:** Stored information of past and current meal plans, review history button
+      - **Output:**  Selection of meal plans – Day of week – Meal Titles, Macronutrient display
+      - **Logic:** Take recipe and grocery information to make timeline and calculate macronutrients
+      - **Dependencies:** Grocery, recipe
+- **Interfaces**
+  - ZeroMQ will be used for communication between microservices. 
+	  - ZMQ provides peer-to-peer communication, eliminating the need for a separate message broking service
+	  - ZMQ is universal; it works with all languages
+      - Provides sockets to setup in each microservice for easy communication
+ - Alternative: RabbitMQ
+	  - Pros:
+	 	 - Provides a user-friendly UI for easier management
+   		 - Supports multiple protocols
+         - Popular; Lots of resources online regarding troubleshooting/setup
+      - Cons:
+		 - Considered to have a steep learning curve
+		 - Degraded performance with large amounts of data
+ - React will also be used for frontend and backend communication. 
+	  - Allows us to take our components and individually render them through the browser to create specified pages
+- **Data Storage**
+  - Stored Data:
+	  - Information provided for profile creation:
+             - This data is collected from the user’s input in the profile creation. 
+      - Recipe:
+             - This data is collected from existing recipes. However, user can also upload their recipes 
+      - Grocery/ ingredients:
+             - This data contains the information on ingredients that are uuto-generated based on the recipe data from the active meal_plan. It could also be manually modified when users use want to use alternative ingredients
+  - Database to be used: 
+      - **Django** – Backend framework with python, React – frontend framework. We will also potentially use Scrapy to attain data from websites to compile grocery data. 
+  - Alternatives: 
+     - **Flask** – Backend / Frontend features. 
+        - Pros:
+             - Readily available documentation for setting up a minimal application
+             - Easy to integrate individual adaptions
+        - Cons:
+             - Not “batteries-included,” which means it doesn’t come with all necessary installations 
+		     - No data and file management structure readily available
+	- **Reflex** – Another potential frontend framework.
+       - Pros:
+             - No need for additional Javascript or other languages, all 100% python building
+             - Offers database management features such as routing/state management 
+       - Cons:
+			 - Debugging complexity increased
+			 - “Newer” framework with potential issues that may not be fixed by conventional means 
+                  - Less documentation
+
+
+		 
 Software Design
 Packages, Classes, Units of abstraction
 Profile/returning user component
