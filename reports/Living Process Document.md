@@ -187,18 +187,18 @@ a.	User profile is not loaded correctly
 b.	No saved account information was loaded
 c.	User is unable to login
 
-Non-functional Requirement
--	Reliability: Application is able to compile and run 99% of the time with all proper data saved. Under normal circumstances, all the core components like the recipe / list upload and history review should be working without issue or delay of some kind.
--	Usability: Users must be able to intuitively navigate the application, it will take first time users less than 5 minutes to create a generalized meal plan (no specifications). Users shouldn’t need to take more than a couple seconds to understand what each button leads to in the application (e.g. review history). Users should be able to complete an account and understand the main functions of the app within 60 seconds of opening it.  Source Regarding User Onboarding 
--	Performance: New pages must load within 3 seconds of opening or swapping. Additionally, any background work such as restocking suggestions shouldn’t slow the application performance.
--	Portability: Application can be accessible on multiple devices (phone, desktop, etc) with conventional methods. It should maintain the same general structure on the application no matter how it is accessed. 
+**Non-functional Requirement**
+- <ins>Reliability</ins>: Application is able to compile and run 99% of the time with all proper data saved. Under normal circumstances, all the core components like the recipe / list upload and history review should be working without issue or delay of some kind.
+- <ins>Usability:</ins> Users must be able to intuitively navigate the application, it will take first time users less than 5 minutes to create a generalized meal plan (no specifications). Users shouldn’t need to take more than a couple seconds to understand what each button leads to in the application (e.g. review history). Users should be able to complete an account and understand the main functions of the app within 60 seconds of opening it.  Source Regarding User Onboarding 
+-	<ins>Performance:</ins> New pages must load within 3 seconds of opening or swapping. Additionally, any background work such as restocking suggestions shouldn’t slow the application performance.
+-	<ins>Portability:</ins> Application can be accessible on multiple devices (phone, desktop, etc) with conventional methods. It should maintain the same general structure on the application no matter how it is accessed. 
 
-External Requirements
--	Compliance and Data Integrity: Possible user input errors are expected and user is provided alerts in such cases
--	Barrier to entry: The product is easily accessible for users to download, install, and run from the App Store, Google Play, and Windows.
--	Documentation: System is well documented to allow new developers to maintain and modify it
+**External Requirements**
+-	<ins>Compliance and Data Integrity:</ins> Possible user input errors are expected and user is provided alerts in such cases
+-	<ins>Barrier to entry:</ins> The product is easily accessible for users to download, install, and run from the App Store, Google Play, and Windows.
+-	<ins>Documentation:</ins> System is well documented to allow new developers to maintain and modify it
 
-Software Architecture
+**Software Architecture**
 	Major components
 ○	Creating Profile / Returning User:
 ■	Purpose/responsibility: Provides user access to application with data that is specific to them
