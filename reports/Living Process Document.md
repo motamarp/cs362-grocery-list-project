@@ -160,31 +160,34 @@ This grocery list application will specifically be super beneficial for college 
 		     - No data and file management structure readily available
 	- **Reflex** – Another potential frontend framework.
        - Pros:
-             - No need for additional Javascript or other languages, all 100% python building
-             - Offers database management features such as routing/state management 
+          - No need for additional Javascript or other languages, all 100% python building
+          - Offers database management features such as routing/state management 
        - Cons:
-			 - Debugging complexity increased
-			 - “Newer” framework with potential issues that may not be fixed by conventional means 
-                  - Less documentation
+		  - Debugging complexity increased
+		  - “Newer” framework with potential issues that may not be fixed by conventional means 
+             - Less documentation
 
 
-		 
-Software Design
-Packages, Classes, Units of abstraction
+**Software Design**
+
+<ins>Packages, Classes, Units of abstraction</ins>
+
 Profile/returning user component
+
 This component will manage user identity and biometric data. It’s responsible for onboarding of users, and collecting/storing the information needed to make personalized recommendations later on.
-●	Backend
-○	User
-■	Authentication/user identification
-○	UserProfile
-■	User’s statistics (height, weight, age, lifestyle, budget)
-○	ProfileView
-■	For creation/modification of profile data
-●	Frontend
-○	React forms
-■	CreateProfile
-■	EditProfile
-■	ProfileSummary
+
+- Backend
+  - User
+    - Authentication/user identification
+  - UserProfile
+    - User’s statistics (height, weight, age, lifestyle, budget)
+  - ProfileView
+    - For creation/modification of profile data
+  - Frontend
+    - React forms
+      - CreateProfile
+      - EditProfile
+      - ProfileSummary
 
 MealPlan component: 
 ●	Backend
