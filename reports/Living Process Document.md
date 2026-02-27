@@ -1,5 +1,5 @@
 # Lettuce Save - The Busy Student’s Grocery Planner
-# Member Details - Group 18
+## Member Details - Group 18
 
 **Member 1: Piper Winder**
 -	Role: User Experience
@@ -19,47 +19,83 @@
 
 **Link to GitHub Repository** - https://github.com/motamarp/cs362-grocery-list-project
 
-**Communication** 
+
+**Communication:** 
+
 Microsoft Teams will be used for the majority of the group’s communication, with emphasis on project delegation, management, and development. A group chat will be created as well for immediate logistical communications, so as not to spam documentation on Teams. Members are expected to respond within 24 hours of receiving a message, with reasonable exceptions. For program development, proper block commenting will be implemented along with consistent documentation whenever a commit is pushed. Lastly, we all agree to be respectful and honest with each other, holding each other accountable and asking for help when needed. 
 
-**Handling Missed Deadlines**
+**Handling Missed Deadlines:**
+
 Ideally, having a team member with a specific role as deadline coordinator will help us make all of our deadlines. In the case that something might not be finished in time, all members are expected to reach out to other team members for assistance and a plan will be made. 
 
 
 # Project Description
 
-**Abstract**
+**Abstract:**
 
 Our project is a grocery-list app that not only helps the user in making meal plans based on their preferences and constraints, it also helps to be more convenient throughout their shopping journey. Instead of being frustrated when you cannot find the specific item you want in a store, our app has the feature that allows you to search which store has the specific brand of item you want to buy, price comparisons, and if it is in stock.
 
-**Goal**
+**Goal:**
+
 This system will address the problems that users face when creating and planning their grocery lists. This includes understanding what needs restocking, finding the best option to purchase, and meeting other miscellaneous requirements (such as dietary restrictions). Essentially, users of this app will be granted a more efficient and sustainable way to track groceries in a personalized fashion. This would serve to solve the issues of forgetting to purchase certain necessities, while also easing navigation of dietary restrictions and providing alternatives for items. 
 
-**Current practice**
+**Current practice:**
+
 Grocery list apps today generally serve the purpose of organization. Please review the list below for applications and their links. They allow you to add or remove, and search up items to develop a purchase plan. Presently, there are several existing grocery list applications that have their own differentiating features. Some of these include sharing lists with family members and friends, notifying the user exactly where aisle items are located, and providing cooking instructions for food recipes. Despite the numerous features of these applications, most do not provide a personalized use and instead serve the user base in general. As students ourselves, we have been a part of many discussions with peers on the challenges of finding cost-efficient and alternative items for personal necessities. According to a study done in 2022 about Prevalence of Food Insecurity at OSU Corvallis, there is an estimated food insecurity rate of 26.6% of student participants (Oregon State University Food Security Study). With this knowledge, creating an Oregon State focused grocery list making application aims to assist such students.
 -	[Instacart](https://www.instacart.com)
 -	[Jow](https://jow.com/)
 -	[eMeals](https://emeals.com/ios/)
 
-**Novelty**
+**Novelty:**
+
 While many other grocery list apps are available, our system is specifically catered towards busy students who wish to eat healthy while both staying cost efficient and saving on time. Thus, we will provide price comparisons for each item in their list. Many grocery lists apps have options to create separate lists for each grocery store, such as Instacart, however, users are still required to parse out the lists themselves manually. We hope to have an interface that provides a comprehensive list that automatically sorts which stores to buy what from. As students ourselves, we know exactly what our targeted audience wants so we will make sure to incorporate our individual preferences throughout the design process. 
 
-**Effects**
+**Effects:**
 This grocery list application will specifically be super beneficial for college students who wish to eat well balanced meals that are cost efficient but don’t have the time or resources to schedule or plan them all on their own. As a student, I end up spending hours planning my shopping lists, determining what recipes are worthwhile, and finding the ingredients at a reasonable price. Our aim is to make grocery shopping and meal planning less of a hassle so that users can focus on things that actually matter to them like school or work. 
 
-Use Cases (Function Requirements)
+**Use Cases (Function Requirements)**
 
-Profile Modification
-1.	Actors: New user that wishes to meal plan with specific specifications
-2.	Triggers: User is prompted to create a profile
-3.	Preconditions: User wishes to use application, application is open, no current profile has been created
-4.	Post Conditions: User confirms profile specifications once all needed information is provided and preferences were selected, immediately brought to main dashboard
-5.	Success Scenario (Ideal)
-a.	User opens application and is prompted to create a profile (clicks button)
-b.	User inputs all needed information (age, sex, height, etc)
-c.	User reviews all optional toggle specifications (build, budget, dietary restrictions, activity level, etc) and curates it to themselves
-d.	User clicks the save profile button and has access to main dashboard
-6.	Variation of success scenarios:
+
+
+| **template** |
+|-----------------------|
+| |
+
+
+
+
+
+| **Profile Modification**|
+|----------------------|
+| 1.  <ins>Actors:</ins> New user that wishes to meal plan with specific specifications<br> 2. <ins>Triggers:</ins> User is prompted to create a profile <br>3. <ins>Preconditions</ins>: User wishes to use application, application is open, no current profile has been created <br>4. <ins>Post Conditions</ins>: User confirms profile specifications once all needed information is provided and preferences were selected, immediately brought to main dashboard <br>5. <ins>Success Scenario (Ideal):</ins> <ol type="a"><li>Default creation</li><li>User inputs all needed information (age, sex, height, etc)</li><li>User reviews all optional toggle specifications (build, budget, dietary restrictions, activity level, etc) and curates it to themselves</li><li>User clicks the save profile button and has access to main dashboard</li></ol> 6. <ins>Variation of success scenarios:</ins> <ol type="a"><li>Default creation<ol type="i"><li>User opens application and is prompted to create a profile (clicks button)</li><li>User inputs all needed information (age, sex, height, etc)</li><li>User keeps all other specifications on their default setting</li><li>User clicks the save profile button and has access to main dashboard</li></ol></li><li>Change preferences<ol type="i"><li>User opens profile settings page</li><li>User reviews specifications and changes certain options to better fit their goals</li><li>User clicks the save profile button</li></ol></li></ol>7. <ins>Exceptions: Failure conditions</ins> <ol type="a"><li>Closing Window<ol type="i"><li>User gets overwhelmed with requirements and leaves application</li><li>User inputs all needed information (age, sex, height, etc)</li><li>All possible inputs are erased, no profile has been created</li></ol></li><li>Missing Information<ol type="i"><li>User opens application and is prompted to create a profile (clicks button)</li><li>User inputs almost all specifications but age</li><li>User keeps all other specifications on their default setting</li><li>User clicks the save profile button but an error pops up due to missing information</li><li>User is unable to create profile until required fields are full</li></ol></li></ol>
+
+
+//template<ins>Variation of success scenarios:</ins> 
+   <ol type="a">
+     <li>
+       Default creation
+       <ol type="i">
+         <li>User opens application and is prompted to create a profile (clicks button)</li>
+         <li>User inputs all needed information (age, sex, height, etc)</li>
+         <li>User keeps all other specifications on their default setting</li>
+         <li>User clicks the save profile button and has access to main dashboard</li>
+       </ol>
+     </li>
+     <li>
+       Change preferences
+       <ol type="i">
+         <li>User opens profile settings page</li>
+         <li>User reviews specifications and changes certain options to better fit their goals</li>
+         <li>User clicks the save profile button</li>
+       </ol>
+     </li>
+   </ol>//
+
+
+
+<ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><br> <br><br> <br> <br> <br> <br> <br><br> <br>|
+
+
 a.	Default creation 
 i.	User opens application and is prompted to create a profile (clicks button)
 ii.	User inputs all needed information (age, sex, height, etc)
