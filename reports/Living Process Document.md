@@ -190,23 +190,25 @@ This component will manage user identity and biometric data. It’s responsible 
       - ProfileSummary
 
 MealPlan component: 
-●	Backend
-○	week
-●	Frontend
-○	editMeal
-○	
+ - Backend
+   - week
+ - Frontend
+   - editMeal
+
 
 GroceryList component:  
-●	Backend
-●	Frontend
+- Backend
+- Frontend
 
 ReviewHistory component:
+
 This component manages in storing the history of users meal plan and grocery list as well as the user’s macronutrients 
-●	Backend
-●	Frontend
+- Backend
+- Frontend
 
 
-Coding Guidelines
+**Coding Guidelines**
+
 The majority of our code will be written in Python. We will specifically use PEP 8 – Style Guide for Python Code as our coding style guideline due to the easy readability with a hanging indent for continued lines, block comments for methods and classes, and snake case for variables. 
 
 Since JavaScript will really only be used for frontend interactions, we will follow the generic JavaScript Style Guide outlined by W3Schools. Key points to note is the less than 80 characters per line with proper indentation and bracketing for complex compound statements. However, for consistency we will continue to use snake case for variable and function names. 
@@ -214,194 +216,136 @@ Since JavaScript will really only be used for frontend interactions, we will fol
 As one of our team roles, the quality assurance manager will quickly review the code prior to submission to allow for continuity. With proper documentation and commenting, we will be able to pinpoint any discrepancies and ultimately correct the mistake. 
 
 
-Team Process Description
+## Team Process Description
 
-Technical Approach
+**Technical Approach**
+
 Since we are using an API gateway microservice pattern, we will create the base application framework and from there add in services. Each service will have its own database to interact with, and will act as the intermediary for all other services wishing to access the data. The API gateway will act as the main entry point for users, taking care of all major functions. Messages will be sent between services to handle the minute tasks within each major function.
 
-To implement the code, we will specifically be using Django as our Python backend framework. It is open-source with much documentation and has foundational built-in simplified interactions with React, which we plan to use as our frontend framework. We are using React since it provides us foundational frontend functions to allow browser based visuals and easy user interactions. We plan to use Scrapy, which allows us to scrape data from other websites to compile grocery data. 
+To implement the code, we will specifically be using [Django](https://www.djangoproject.com/) as our Python backend framework. It is open-source with much documentation and has foundational built-in simplified interactions with [React](https://react.dev/), which we plan to use as our frontend framework. We are using React since it provides us foundational frontend functions to allow browser based visuals and easy user interactions. We plan to use [Scrapy](https://pypi.org/project/Scrapy/), which allows us to scrape data from other websites to compile grocery data. 
 
-External Feedback
+**External Feedback**
+
 At the beginning of week three we presented our app idea to the whole class. After the presentation, we reviewed the discussion post where students were able to provide their insights and questions to us. We have already implemented a few changes into our project description that were recommended from peers. 
 
 Our goal is to have a mainly functioning app by week 7, we then will begin testing and debugging the program. Testing will involve having random users attempt to download, operate, and navigate the app, through that experience we will then ask for feedback. We’ll start with black-box testing and then progress with white-box testing shortly after.
 
-Risks
+**Risks**
+
 1) A challenge that we foresee while developing this project is properly accessing grocery store’s individual online resources with our application to provide seamless integration and up to date information. We hope to mitigate these risks by providing clear user instructions, finding previously constructed databases to access, and researching grocery store’s online capabilities. 
 
-2) Another potential risk is being unable to implement every feature as stated in the presentation with the time constraint that we have. Currently there are multiple features that need to be stand-alone, and most applications could probably settle just having one or two of the main features presented. Given this fact, we decided to combat this by focusing on the main aspects of our project – that being the list generation, meal plan suggestions, and profile creation. We’ve also thoroughly planned out who is responsible for each of those sections.
+2) Another potential risk is being unable to implement every feature as stated in the presentation with the <ins>time constraint</ins> that we have. Currently there are multiple features that need to be stand-alone, and most applications could probably settle just having one or two of the main features presented. Given this fact, we decided to combat this by focusing on the main aspects of our project – that being the list generation, meal plan suggestions, and profile creation. We’ve also thoroughly planned out who is responsible for each of those sections.
 
 3) Another issue we face at the moment is that not all of our members are too experienced with Python. Although the language can be intuitive if you know C++, remembering the syntax and other concepts may pose a challenge. To prevent this from affecting project completion, we plan on communicating frequently through Microsoft Teams and in our weekly Friday meetings about any struggles the team may be facing. This way, team members can address any concerns or questions about debugging or just Python syntax in general.
 
 4) For this project, our work will mostly go through flip engineering servers which tend to go down a lot. This is especially true for the week before final tests and projects are typically due,  as all other software engineering classes will also be using those servers. To combat this, the team is currently working on finding an alternative environment (such as a local Docker). This isn’t yet finalized in any form, but we are working out how the team will proceed in case of this issue. 
 
-5) Finally, the chosen frontend/backend frameworks may be confusing for some team members. Our main choice, Django, isn’t one most of the group members have much experience with. This could result in major problems with our software architectures that aren’t easy to identify, and it’s crucial that we check in with each other to make sure everything is flowing together smoothly. Despite having alternatives, we firmly believe that using Django would be best if possible. The team members will work together to research information and familiarize themselves with Django. If after a week or so, issues arise, then there will be a shift to one of our alternatives. We will know if there are major issues depending on if we’re able to make it work successfully with Scrapy, which is how we’ll attain some of our program’s information. 
+5) Finally, the chosen frontend/backend frameworks may be confusing for some team members. Our main choice, Django, isn’t one most of the group members have much experience with. This could result in major problems with our software architectures that aren’t easy to identify, and it’s crucial that we check in with each other to make sure everything is flowing together smoothly. Despite having alternatives, we firmly believe that using Django would be best if possible. The team members will work together to research information and familiarize themselves with Django. If after a week or so, issues arise, then there will be a shift to one of our alternatives. We will know if there are major issues depending on if we’re able to make it work successfully with **Scrapy**, which is how we’ll attain some of our program’s information. 
 
-Major Features:
+**Major Features:**
+
 We plan to implement healthy meal plan recommendations, with built in logic to display recipes that go together throughout the whole week to cut down on food waste. The meal plans will be customizable with specific differentiations such as how often one wishes to cook, if they are ok with leftovers, and how many servings they need each meal. Users will also be able to upload their own recipes via website link, PDF, or manual. Within the actual list itself, we will provide price comparisons for each ingredient needed along with which stores have the items in stock. 
 
 Essentially: 
-●	 Healthy Meal Plan
-○	Customizable to each user’s individual needs
-○	Prioritizes minimizing food waste and affordability
-●	Ingredient finding 
-●	User Recipe Uploads
-●	Store price comparisons
+ - Healthy Meal Plan
+   - Customizable to each user’s individual needs
+   - Prioritizes minimizing food waste and affordability
+ - Ingredient finding 
+ - User Recipe Uploads
+ - Store price comparisons
 
-Stretch Goals: 
+**Stretch Goals:** 
 -	We hope to implement suggestive restocking through learning weekly grocery patterns, which will involve possible AI use. 
 -	Another possible feature we hope to implement is a comprehensive dietary review, where the user can track their macros and supplements they are receiving through their food. 
 
-Documentation Plan
+**Documentation Plan**
+
 Through weekly reports and our project schedule we will be able to keep track of development at a high level. With the use of GitHub we will create branches for each individual component, where members will keep it up to date. Thankfully, git provides us logs where the date, the creator, and an individual message is provided with every commit. That is more than enough documentation, when paired with our block comment formatting. We are already using teams so we plan on setting up a pipeline notification through Teams so all members have easy access to git status updates. 
 
-Test Plan & Bugs
+**Test Plan & Bugs**
+
 First we plan on doing individual unit testing for each component as they are being developed. Unit testing will mainly focus on validation testing, where or not the system satisfies the functional requirements. For example, profile creation will be tested for best case scenarios, along with edge cases (improper characters, missing input, etc). Then once two components are able to pass their unit testing, we will continue onto integration testing. Again, mainly focusing on validation testing but in use cases where both components are used. Since we are using a microservices architecture, test cases would involve the passing of information from one service to another. We also hope to do error testing for when one microservice breaks, and how the next service is able to react. 
 
 Throughout the whole development process, whenever bugs occur, we will create a GitHub issue to keep track of them. This will also allow us to document test cases that are created and added to the test suite. Once most of the application has been developed, we will move onto system testing. We will use the test suite we’ve compiled of previous issues to do regression testing upon the whole system, along with testing typical use cases and edge cases.
 
-To ensure Scrapy works well with our frontend/backend choices, first the team will check that the chosen information is being pushed into our software. Once we have confirmation of this, we proceed with attempting to format the information into our separate features. Upon doing so, we check to see if the information remains while unit-testing specific features such as searching for groceries. This is the most crucial part, as several of our features require storing the chosen grocery lists. After validation from the individual tests, we’ll then begin using integration testing to ensure information is pushed from one page to another.
+To ensure **Scrapy** works well with our frontend/backend choices, first the team will check that the chosen information is being pushed into our software. Once we have confirmation of this, we proceed with attempting to format the information into our separate features. Upon doing so, we check to see if the information remains while unit-testing specific features such as searching for groceries. This is the most crucial part, as several of our features require storing the chosen grocery lists. After validation from the individual tests, we’ll then begin using integration testing to ensure information is pushed from one page to another.
 
-Piper Winder – User Experience 
+**Piper Winder – User Experience**
+
 Justification: This role ensures there is seamless integration with backend features and user interactions that are intuitive and pleasing to the eye. I am suited for this role due to my keen attention to detail, interest in continuity of product, and my lack of patience which translates well into thinking like a user. 
-Personal Schedule:
-expected to be done by end of week	Milestone Goals
-Week 3	-	All use case scenarios and diagrams have been created
--	User flow diagram is outlined
-Week 4	-	Whole file system is setup with Django, React, and Github
-Week 5	-	Create individual feature test cases
--	History page setup
--	Grocery list can be automatically generated for default profile
-Week 6	-	Grocery list items can be modified
-Week 7	-	Grocery list generates other plans from specifications 
--	REST SHOULD BE TESTING/DEBUGGING
-Week 8	-	External feedback
-Week 9	-	Project report
+
+**Personal Schedule:**
+
+| expected to be done by end of week  | Milestone Goals|
+| ------------- | ------------- |
+| Week 3	|	<ul><li>All use case scenarios and diagrams have been created </li><li>User flow diagram is outlined</li></ul> |
+| Week 4	|	<ul><li>Whole file system is setup with Django, React, and Github</li></ul> |
+| Week 5	|	<ul><li>Create individual feature test cases</li><li>History page setup</li><li>Grocery list can be automatically generated for default profile</li></ul> |
+| Week 6	|	<ul><li>Grocery list items can be modified</li></ul> |
+| Week 7	|	<ul><li>Grocery list generates other plans from specifications </li><li>REST SHOULD BE TESTING/DEBUGGING </li></ul> |
+| Week 8	|	<ul><li>External feedback |
+| Week 9	|	<ul><li>Project report |
 
 
-Paolo Mota Marques – Quality Assurance Manager 
+**Paolo Mota Marques – Quality Assurance Manager**
+
 Justification: This role is set to make sure everything ties in together nicely after work is finished. In other words, a final review of the assignments/project before submission. As the person who created the Github repository and turned in the projects so far, this role feels most fitting for Paolo. He has also taken similar roles in previous projects.
-Personal Schedule: 
 
-Week	What to Accomplish:	What will be worked on:
+**Personal Schedule:** 
 
-3
-	Weekly Report 1
-Repository setup	
-Automated Meal Planning
-
-4	
-Weekly Report 2
-	
-Automated Meal Planning
-
-5	
-Weekly Report 3
-Automated Meal Planning
-	
-Logging system
-Make sure every feature works together in practice
+| Week  | What to Accomplish: | What will be worked on:|
+| ------------- | ------------- | -------- |
+|  3	| Weekly Report 1: Repository setup	 | Automated Meal Planning|
+| 4	    |	Weekly Report 2 | Automated Meal Planning |
+| 5	    |	Weekly Report 3: Automated Meal Planning | <ul><li>Logging system</li><li> Make sure every feature works together in practice </li></ul>|
+|   6	|  Weekly Report 4:  Everything is, in the most basic sense, working as expected together |<ul><li>Integration Testing</li><li>Fix integration bugs</li><li>Logging System</li></ul> |
+|  7	|  Weekly Report 5: All integration bugs fixed| <ul><li>Integration Testing </li><li>Fix integration bugs</li></ul> |
+|  8	| Weekly Report 6|	TBD<br>(More than likely bug-fixes) |
+|  9	| Weekly Report 7: All features tested and working| At this point in time, everything should be functional and final. |
 
 
-6	
-Weekly Report 4
-Everything is, in the most basic sense, working as expected together. 	
-Integration Testing
-Fix integration bugs
-Logging System
+**Ahman Raines – Backend/Database**
 
-
-7	
-Weekly Report 5
-All integration bugs fixed
-	
-Integration Testing
-Fix integration bugs
-
-8	
-Weekly Report 6
-
-	
-TBD
-(More than likely bug-fixes)
-
-9
-	
-Weekly Report 7
-All features tested and working
-	
-At this point in time, everything should be functional and final. 
-
-
-Ahman Raines – Backend/Database
 Justification: This role is to ensure that all backend components of the project interact properly with each other, as well as with the front end of the program (Collaboration with User Experience). This encompasses management and testing of all server-side logic/core functionality of the project. Backend experience in past projects makes this a suitable position for Ahman.
 Personal Schedule: Monday, Wednesday, Friday
 
-Week	Goal	Accomplished
-Week 4	-	Website scraping, grocery store database compilation	
-Week 5	-	
--	Logging page created, user is able to add notes and reviews	-	Recipe database interactions
--	Profile creation for recommendation reference
-Week 6	-	Review page created	
-Week 7	-	Grocery list modifications
--	Meal planning modifications
--	Review page with logging implemented	-	Automated meal planing
--	Automated grocery list
--	Logging feature
-Week 8	-	Test implemented features
--	Test feature integration	Ideally everything has been implemented now and it is mainly testing and debugging
-Week 9	-	Project report	
+|Week	|Goal	|Accomplished|
+|------|------|-------|
+|Week 4	| Website scraping, grocery store database compilation | |	
+|Week 5	| Logging page created, user is able to add notes and reviews|<ul><li>Recipe database interactions</li><li></li>Profile creation for recommendation reference </li></ul> |
+|Week 6	|	Review page created	| |
+|Week 7	|	<ul><li> Grocery list modifications</li><li>Meal planning modifications</li><li>Review page with logging implemented </li></ul>	|<ul><li>Automated meal planing</li><li>Automated grocery list</li><li>Logging feature </li></ul> |
+|Week 8	|	<ul><li>Test implemented features</li><li>Test feature integration</li></ul>| Ideally everything has been implemented now and it is mainly testing and debugging |
+|Week 9	|	Project report	| |
 
-Hilarion Christian Gunawan-  Deadline coordinator 
-Justification: This role helps to make sure the team knows when assignments are due to have enough time to meet up and work on it together. Since us students are always busy  with both classes and other assignments,the deadline coordinator will help remind the team of upcoming deadlines so that each group member can also manage their own schedule to have time to work on the project which Hilarion is suitable for the job. 
+**Hilarion Christian Gunawan-  Deadline coordinator**
 
-Personal Schedule:  	Wednesday- 1-3:30 pm
+**Justification:** This role helps to make sure the team knows when assignments are due to have enough time to meet up and work on it together. Since us students are always busy  with both classes and other assignments,the deadline coordinator will help remind the team of upcoming deadlines so that each group member can also manage their own schedule to have time to work on the project which Hilarion is suitable for the job. 
+
+**Personal Schedule:**  	Wednesday- 1-3:30 pm
 Free on Fridays and weekends
 
-Week	What I want to get Done:	What I Start On:
-3	Weekly Report 1
-Repo setup	
-4	Weekly Report 2
-	Profile creation and modification
-5	Weekly Report 3
-	Profile specification 
-6	Weekly Report 4
-	Unit testing for profile 
-7	Weekly Report 5
-	
-8	Weekly Report 6
-	
-TBD
-(More than likely bug-fixes)
-9	Weekly Report 7
-	
-At this point in time, everything should be functional and final. 
+|Week	|What I want to get Done:	|What I Start On:|
+|------|------|-------|
+| 3 | Weekly Report 1: Repository setup	 |  Frontend design|
+| 4	| Weekly Report 2 | Profile creation and modification|	
+|5	| Weekly Report 3|Profile specification (specializers) |
+| 6	| Weekly Report 4	| Grocery lists (specializers)|
+| 7	| Weekly Report 5	|<ul><li>Testing logging system</li><li>Unit case testing </li></ul> |
+| 8	|	Weekly Report 6 | TBD(More than likely bug-fixes)|
+| 9	|	Weekly Report 7	| At this point in time, everything should be functional and final  |
 
-Timeline
-Week	Working On	Accomplished
-Week 3	-	User flow diagram
--	Project architecture (class diagrams, functions, etc)
--	Frontend design	-	General project proposal
--	GitHub repository made
--	Requirements (Use Cases & Scenarios)
-Week 4	-	Code database interactions (recipes)
--	Code profile creation
--	Grocery store database collection	-	File structure created in github
-Week 5	-	Code automated meal planning 
--	Create individual feature test cases
--	Logging feature
--	Review page setup	-	Recipe database interactions
--	Profile creation for recommendation reference
-Week 6	-	Code grocery list
--	Create integrated test cases	
-Week 7	-	Test previously implemented features
--	Grocery list modifications
--	Meal planning modifications
--	Review page with logging implemented	-	Automated meal planing
--	Automated grocery list
--	Logging feature
-Week 8	-	Test implemented features
--	Test feature integration	Ideally everything has been implemented now and it is mainly testing and debugging
-Week 9	-	Project report	
+
+
+**Timeline**
+|Week	|Working On|	Accomplished|
+|------|------|-------|
+|Week 3	|<ul><li>	User flow diagram </li><li>Project architecture (class diagrams, functions, etc)</li><li>Frontend design</li></ul>|	<ul><li>General project proposal</li><li>GitHub repository made </li><li>Requirements (Use Cases & Scenarios)</li></ul>|
+|Week 4	|<ul><li> Code database interactions (recipes) </li><li>Code profile creation</li><li>Grocery store database collection </li></ul>| File structure created in github|
+|Week 5	|<ul><li>	Code automated meal planning </li><li>	Create individual feature test cases</li><li>	Logging feature</li><li>Review page setup	</li></ul>		| <ul><li>Recipe database interactions</li><li>Profile creation for recommendation reference </li></ul>	|
+|Week 6	|<ul><li>	Code grocery list</li><li>Create integrated test cases </li></ul>	|   |
+|Week 7	|	<ul><li>Test previously implemented features</li><li>Grocery list modifications</li><li>Meal planning modifications</li><li>Review page with logging implemented</li></ul>| <ul><li>Automated meal planing</li><li>Automated grocery list</li><li>Logging feature </li></ul>|
+|Week 8	|	<ul><li>Test implemented features</li><li>Test feature integration</li></ul>	|Ideally everything has been implemented now and it is mainly testing and debugging|
+|Week 9	|	Project report	| |
 
 
