@@ -1,4 +1,10 @@
 from rest_framework import serializers
+from django.contrib.auth.models import User
+from .models import UserProfile
+
+
+
+
 # Create your serializers here.
 class UserProfileSerializer(serializers.ModelSerializer):
     # Serializer for UserProfile
@@ -92,4 +98,4 @@ class ChangePasswordSerializer(serializers.Serializer):
         if data['new_password'] != data['new_password_confirm']:
             raise serializers.ValidationError({"new_password": "New passwords must match."})
         return data
->>>>>>> origin/main
+

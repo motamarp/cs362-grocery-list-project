@@ -5,98 +5,96 @@ from .models import (
     MealPlan, PlannedMeal, GroceryList, GroceryListItem
 )
 
+# ========== HELPER FUNCTIONS ==========
+
+def format_nutrition_display(nutrition_data):
+    """Helper function to format nutrition data for display"""
+    if isinstance(nutrition_data, dict):
+        return nutrition_data
+    elif isinstance(nutrition_data, list):
+        # Convert list to dict with standard labels
+        labels = ['calories', 'protein', 'carbs', 'fat', 'fiber']
+        return {labels[i]: val for i, val in enumerate(nutrition_data) if i < len(labels)}
+    return {}
 
 # ========== RECIPE SERIALIZERS ==========
 
 class RecipeIngredientSerializer(serializers.ModelSerializer):
-    """Serializer for recipe ingredients"""
+    """Basic serializer for recipe ingredients"""
     class Meta:
         model = RecipeIngredient
         fields = ['id', 'name', 'quantity', 'metric', 'category']
 
 
-class RecipeDetailSerializer(serializers.ModelSerializer):
-    """Detailed recipe serializer with ingredients"""
+class RecipeSerializer(serializers.ModelSerializer):
+    """
+    Main recipe serializer.
+    Handles both input/output with nutrition as list for easy API use.
+    """
     ingredients = RecipeIngredientSerializer(many=True, read_only=True)
     total_time = serializers.IntegerField(source='total_time_minutes', read_only=True)
     
+    # Accept nutrition as a list for easier input
+    nutrition_list = serializers.ListField(
+        child=serializers.IntegerField(min_value=0),
+        write_only=True,
+        required=False,
+        help_text="Input as [calories, protein, carbs, fat, fiber]"
+    )
+    
+    # Display nutrition as formatted dict
+    nutrition_info = serializers.SerializerMethodField(read_only=True)
+
     class Meta:
         model = Recipe
         fields = [
-            'id', 'name', 'description', 'meal_type', 'prep_time_minutes',
-            'cook_time_minutes', 'total_time', 'difficulty', 'nutrition',
-            'dietary_tags', 'estimated_cost', 'instructions', 'ingredients',
-            'created_at', 'updated_at'
+            'id', 'name', 'description', 'meal_type', 
+            'prep_time_minutes', 'cook_time_minutes', 'total_time',
+            'difficulty', 'nutrition', 'nutrition_list', 'nutrition_info',
+            'dietary_tags', 'estimated_cost', 'instructions', 'ingredients'
         ]
         read_only_fields = ['created_at', 'updated_at']
 
+    def get_nutrition_info(self, obj):
+        """Format nutrition for display"""
+        return format_nutrition_display(obj.nutrition)
+
+    def create(self, validated_data):
+        # Handle nutrition list if provided
+        nutrition_list = validated_data.pop('nutrition_list', [])
+        if nutrition_list:
+            validated_data['nutrition'] = nutrition_list
+        return super().create(validated_data)
+
+    def update(self, instance, validated_data):
+        nutrition_list = validated_data.pop('nutrition_list', None)
+        if nutrition_list is not None:
+            validated_data['nutrition'] = nutrition_list
+        return super().update(instance, validated_data)
+
 
 class RecipeBasicSerializer(serializers.ModelSerializer):
-    """Minimal recipe info for meal plan display"""
-    calories = serializers.IntegerField(source='calories', read_only=True)
+    """Minimal recipe info for dropdowns and summaries"""
+    calories = serializers.IntegerField( read_only=True)
     
     class Meta:
         model = Recipe
-        fields = ['id', 'name', 'meal_type', 'calories', 'estimated_cost', 'difficulty']
-
-
-class RecipeCreateUpdateSerializer(serializers.ModelSerializer):
-    """Serializer for creating/updating recipes with nested ingredients"""
-    ingredients = RecipeIngredientSerializer(many=True)
-    
-    class Meta:
-        model = Recipe
-        fields = [
-            'name', 'description', 'meal_type', 'prep_time_minutes',
-            'cook_time_minutes', 'difficulty', 'nutrition',
-            'dietary_tags', 'estimated_cost', 'instructions', 'ingredients'
-        ]
-    
-    def create(self, validated_data):
-        ingredients_data = validated_data.pop('ingredients')
-        recipe = Recipe.objects.create(**validated_data)
-        
-        for ingredient_data in ingredients_data:
-            RecipeIngredient.objects.create(recipe=recipe, **ingredient_data)
-        
-        return recipe
-    
-    def update(self, instance, validated_data):
-        ingredients_data = validated_data.pop('ingredients', None)
-        
-        # Update recipe fields
-        for attr, value in validated_data.items():
-            setattr(instance, attr, value)
-        instance.save()
-        
-        # Update ingredients if provided
-        if ingredients_data is not None:
-            # Remove old ingredients
-            instance.ingredients.all().delete()
-            # Create new ones
-            for ingredient_data in ingredients_data:
-                RecipeIngredient.objects.create(recipe=instance, **ingredient_data)
-        
-        return instance
+        fields = ['id', 'name', 'meal_type', 'calories', 'estimated_cost']
 
 
 # ========== STORE SERIALIZERS ==========
 
 class StoreIngredientSerializer(serializers.ModelSerializer):
     """Serializer for store inventory items"""
-    store_name = serializers.CharField(source='store.name', read_only=True)
+    store_name = serializers.CharField(read_only=True)
     
     class Meta:
         model = StoreIngredient
-        fields = [
-            'id', 'store', 'store_name', 'ingredient_name',
-            'price', 'price_unit', 'in_stock', 'brand', 'last_updated'
-        ]
-        read_only_fields = ['last_updated']
+        fields = ['id', 'ingredient_name', 'price', 'price_unit', 'in_stock', 'brand', 'store_name']
 
 
 class StoreSerializer(serializers.ModelSerializer):
-    """Serializer for stores with optional inventory"""
+    """Serializer for stores with their inventory"""
     inventory = StoreIngredientSerializer(many=True, read_only=True)
     
     class Meta:
@@ -107,46 +105,27 @@ class StoreSerializer(serializers.ModelSerializer):
 # ========== GROCERY LIST SERIALIZERS ==========
 
 class GroceryListItemSerializer(serializers.ModelSerializer):
-    """Serializer for individual grocery list items"""
-    suggested_store_name = serializers.CharField(
-        source='suggested_store.name', 
-        read_only=True
-    )
-    source_recipe_names = serializers.SerializerMethodField()
+    """Serializer for individual grocery items"""
+    suggested_store_name = serializers.CharField(source='suggested_store.name', read_only=True)
+    recipe_sources = serializers.StringRelatedField(many=True, source='source_recipes', read_only=True)
     
     class Meta:
         model = GroceryListItem
         fields = [
             'id', 'ingredient_name', 'quantity', 'metric',
             'suggested_store', 'suggested_store_name', 'price_estimate',
-            'is_purchased', 'source_recipes', 'source_recipe_names'
+            'is_purchased', 'recipe_sources'
         ]
-    
-    def get_source_recipe_names(self, obj):
-        """Get names of recipes this item comes from"""
-        return [recipe.name for recipe in obj.source_recipes.all()]
 
 
-class GroceryListDetailSerializer(serializers.ModelSerializer):
-    """Detailed grocery list with items"""
+class GroceryListSerializer(serializers.ModelSerializer):
+    """Serializer for grocery lists with their items"""
     items = GroceryListItemSerializer(many=True, read_only=True)
-    meal_plan_id = serializers.IntegerField(source='meal_plan.id', read_only=True)
     meal_plan_week = serializers.DateField(source='meal_plan.week_start_date', read_only=True)
     
     class Meta:
         model = GroceryList
-        fields = [
-            'id', 'name', 'meal_plan', 'meal_plan_id', 'meal_plan_week',
-            'created_at', 'updated_at', 'total_cost', 'items'
-        ]
-        read_only_fields = ['created_at', 'updated_at']
-
-
-class GroceryListBasicSerializer(serializers.ModelSerializer):
-    """Simple grocery list serializer for lists"""
-    class Meta:
-        model = GroceryList
-        fields = ['id', 'name', 'created_at', 'total_cost']
+        fields = ['id', 'name', 'meal_plan', 'created_at', 'total_cost', 'items', 'meal_plan_week']
 
 
 # ========== MEAL PLAN SERIALIZERS ==========
@@ -154,87 +133,63 @@ class GroceryListBasicSerializer(serializers.ModelSerializer):
 class PlannedMealSerializer(serializers.ModelSerializer):
     """Serializer for individual planned meals"""
     recipe_details = RecipeBasicSerializer(source='recipe', read_only=True)
-    day_name = serializers.SerializerMethodField()
+    day_name = serializers.CharField(source='get_day_of_week_display', read_only=True)
     
     class Meta:
         model = PlannedMeal
         fields = [
-            'id', 'day_of_week', 'day_name', 'meal_type',
+            'id', 'meal_plan', 'day_of_week', 'day_name', 'meal_type',
             'recipe', 'recipe_details', 'custom_notes', 'was_completed'
         ]
-    
-    def get_day_name(self, obj):
-        """Convert day number to name"""
-        return obj.get_day_of_week_display()
 
 
 class MealPlanSerializer(serializers.ModelSerializer):
-    """Full meal plan serializer with all meals"""
+    """
+    Main meal plan serializer.
+    Shows all meals and the generated grocery list.
+    """
     meals = PlannedMealSerializer(many=True, read_only=True)
     week_end_date = serializers.DateField(read_only=True)
-    grocery_list = GroceryListBasicSerializer(source='grocery_list', read_only=True)
+    grocery_list = GroceryListSerializer(read_only=True)
     user_name = serializers.CharField(source='user.username', read_only=True)
-    meal_count = serializers.SerializerMethodField()
     
     class Meta:
         model = MealPlan
         fields = [
             'id', 'user', 'user_name', 'week_start_date', 'week_end_date',
-            'total_cost_estimate', 'is_active', 'created_at', 'updated_at',
-            'meals', 'grocery_list', 'meal_count'
-        ]
-        read_only_fields = ['created_at', 'updated_at']
-    
-    def get_meal_count(self, obj):
-        """Count total meals in plan"""
-        return obj.meals.count()
-
-
-class MealPlanBasicSerializer(serializers.ModelSerializer):
-    """Minimal meal plan serializer for list views"""
-    week_end_date = serializers.DateField(read_only=True)
-    meal_count = serializers.IntegerField(source='meals.count', read_only=True)
-    
-    class Meta:
-        model = MealPlan
-        fields = [
-            'id', 'week_start_date', 'week_end_date',
-            'total_cost_estimate', 'is_active', 'meal_count'
+            'total_cost_estimate', 'is_active', 'meals', 'grocery_list'
         ]
 
-
-# ========== REQUEST SERIALIZERS ==========
 
 class CreateMealPlanSerializer(serializers.Serializer):
-    """Serializer for creating a new meal plan"""
-    week_start_date = serializers.DateField(required=False, allow_null=True)
-    regenerate = serializers.BooleanField(default=False)
+    """
+    Serializer for creating a new meal plan.
+    Accepts optional preferences for generation.
+    """
+    week_start_date = serializers.DateField(required=False, help_text="Must be a Monday")
+    dietary_preferences = serializers.ListField(
+        child=serializers.CharField(max_length=50),
+        required=False,
+        help_text="e.g., ['vegetarian', 'gluten-free']"
+    )
     
     def validate_week_start_date(self, value):
-        """Ensure week start date is a Monday"""
+        """Ensure date is a Monday if provided"""
         if value and value.weekday() != 0:  # 0 = Monday
-            raise serializers.ValidationError("Week start date must be a Monday")
+            raise serializers.ValidationError("Week must start on a Monday")
         return value
 
 
 class SwapMealSerializer(serializers.Serializer):
-    """Serializer for swapping a meal in a plan"""
+    """
+    Serializer for swapping a meal in an existing plan.
+    """
     day_of_week = serializers.ChoiceField(choices=[0, 1, 2, 3, 4, 5, 6])
     meal_type = serializers.ChoiceField(choices=['breakfast', 'lunch', 'dinner', 'snack'])
     new_recipe_id = serializers.IntegerField(min_value=1)
-    
+
     def validate_new_recipe_id(self, value):
-        """Validate that the recipe exists"""
+        """Verify recipe exists"""
         if not Recipe.objects.filter(id=value).exists():
-            raise serializers.ValidationError("Recipe does not exist")
-        return value
-
-
-class GenerateGroceryListSerializer(serializers.Serializer):
-    """Serializer for triggering grocery list generation"""
-    meal_plan_id = serializers.IntegerField(min_value=1)
-    
-    def validate_meal_plan_id(self, value):
-        """Validate meal plan exists and belongs to user"""
-        # This will be checked in the view with request.user
+            raise serializers.ValidationError("Recipe not found")
         return value
