@@ -90,8 +90,11 @@ class StoreIngredientSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = StoreIngredient
-        fields = ['id', 'ingredient_name', 'price', 'price_unit', 'in_stock', 'brand', 'store_name']
-
+        fields = ['id', 'store', 'store_name','ingredient_name', 'price', 'price_unit', 'in_stock', 'brand', 'store_name']
+        
+        extra_kwargs = {
+            'store': {'required': True}  
+        }
 
 class StoreSerializer(serializers.ModelSerializer):
     """Serializer for stores with their inventory"""
@@ -112,10 +115,13 @@ class GroceryListItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = GroceryListItem
         fields = [
-            'id', 'ingredient_name', 'quantity', 'metric',
+            'id', 'grocery_list', 'ingredient_name', 'quantity', 'metric',
             'suggested_store', 'suggested_store_name', 'price_estimate',
             'is_purchased', 'recipe_sources'
         ]
+        extra_kwargs = {
+            'grocery_list': {'required': True}  # optional but helpful
+        }
 
 
 class GroceryListSerializer(serializers.ModelSerializer):
