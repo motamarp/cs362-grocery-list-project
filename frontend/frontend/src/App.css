@@ -1,0 +1,64 @@
+.app-container {
+  max-width: 800px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+h1 {
+  color: #2f7a2f; /* dark green */
+  text-align: center;
+}
+
+.section {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #b6e0b6; /* light green border */
+  border-radius: 10px;
+  background-color: #f7fff7; /* very light green background */
+}
+
+input, select {
+  display: block;
+  margin-bottom: 10px;
+  padding: 8px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 8px 12px;
+  margin-top: 5px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a045;
+}
+
+.recipe-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.auth-forms {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.form-box {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #b6e0b6;
+  border-radius: 10px;
+  background-color: #f7fff7;
+}
