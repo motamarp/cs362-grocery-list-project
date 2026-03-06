@@ -20,6 +20,7 @@ urlpatterns = [
     path('api/', include('lettuce_app.urls')),
     path('register/', UserRegistrationView.as_view(), name='register'),
     path('', include(router.urls)),
+    path('planner/', include('planner.urls')),
 ]
 
 if settings.DEBUG:
