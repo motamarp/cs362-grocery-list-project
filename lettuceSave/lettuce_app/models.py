@@ -25,13 +25,56 @@ class UserProfile(models.Model):
         help_text="Your activity level on a scale of 1-5",
         validators = [MinValueValidator(1), MaxValueValidator(5)]
     )
+    #Preferences
+    dietary_preferences = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        help_text="e.g, Vegetarian, Vegan, etc."
+    )
+    favorite_stores = models.CharField(
+        max_length=200, 
+        blank=True, 
+        null=True,
+        help_text="List of favorite grocery stores (comma seperated)"
+    )
+
+    # Metadata for tracking
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "User Profile"
+        verbose_name_plural = "User Profiles"
+        ordering = ['created_at']
+
+        def __str__(self):
+            return f"{self.user.username}'s Profile"
+        
+        @property
+        def full_name(self):
+            #Return user's full name
+            return f"{self.user.first_name} {self.user.last_name}".strip() or self.user.username\
+            
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    #Creates a UserProfile when a new User has been created
+    if created:
+        UserProfile.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    #Saves the UserProfile when the User is saved
+    if hasattr(instance, 'profile'):
+        instance.profile.save()
 
 #recipe model to store recipes
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
     #can access ingredients through Recipe.RecipeIngredient_set.all()
     
-    nutrition = models.ListField(IntegerField(max_length=100))
+    nutrition = models.IntegerField(max_length=100)
 
 #ingredient needed in a recipe, linked to the recipe through a foreign key
 class RecipeIngredient(models.Model):
