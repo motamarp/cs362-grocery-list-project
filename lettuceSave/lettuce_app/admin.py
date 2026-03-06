@@ -33,7 +33,7 @@ class UserProfileAdmin(admin.ModelAdmin):
             'fields': ('user',)
         }),
         ('Personal Information', {
-            'fields': ('date_of_birth', 'height')
+            'fields': ('date_of_birth', 'height', 'activity_level')
         }),
         ('Preferences', {
             'fields': ('dietary_preferences', 'favorite_stores')

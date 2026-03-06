@@ -1,5 +1,30 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.core.validators import MinValueValidator, MaxValueValidator
+
+# Create your models here.
+class UserProfile(models.Model):
+
+    # user profile model containing user info
+    
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    
+    # Personal Info
+    date_of_birth = models.DateField(blank=True, null=True)
+    height = models.IntegerField(
+        blank=True,
+        null=True,
+        help_text="Height in inches",
+        validators=[MinValueValidator(36), MaxValueValidator(96)]
+    )
+    activity_level = models.IntegerField(
+        blank=True,
+        null=True,
+        help_text="Your activity level on a scale of 1-5",
+        validators = [MinValueValidator(1), MaxValueValidator(5)]
+    )
 
 #recipe model to store recipes
 class Recipe(models.Model):

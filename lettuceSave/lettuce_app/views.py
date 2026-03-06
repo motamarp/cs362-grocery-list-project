@@ -37,7 +37,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     Endpoints:
     - GET /api/profiles/ - List all profiles (admin)
     - GET /api/profiles/me/ - Get current user's profile
-        - GET /api/profiles/{id}/ - Get specific profile
+    - GET /api/profiles/{id}/ - Get specific profile
     - PUT/PATCH /api/profiles/me/ - Update current user's profile
     - POST /api/profiles/me/change-password/ - Change password
     """
@@ -67,7 +67,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
                 user_data['first_name'] = request.data.pop('first_name')
             if 'last_name' in request.data:
                 user_data['last_name'] = request.data.pop('last_name')
-                        
+            
             if user_data:
                 user_serializer = UserUpdateSerializer(
                     request.user, 
