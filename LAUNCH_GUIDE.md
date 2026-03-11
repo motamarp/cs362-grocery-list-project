@@ -14,6 +14,8 @@
 ### 1. Navigate to the main folder & frontend folder to install dependencies
 ```bash
 cd cs362-grocery-list-project
+rm -rf node_modules
+rm package-lock.json
 npm install
 cd frontend
 npm install
@@ -37,6 +39,7 @@ source venv/bin/activate
 ### 3. Install remaining dependencies
 ```bash
 pip install -r requirements.txt
+python manage.py migrate
 ```
 
 ### 4. Launch site!
