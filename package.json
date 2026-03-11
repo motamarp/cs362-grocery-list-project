@@ -1,0 +1,17 @@
+{
+  "name": "cs362-grocery-list-project",
+  "version": "1.0.0",
+  "private": true,
+  "description": "This project, Lettuce Save, is a grocery-list creation and meal-planning application all in one, aiming to give users personalized profiles while allowing them to eat healthy and save time and money.",
+  "scripts": {
+    "backend": "cd lettuceSave && ./venv/bin/python manage.py runserver 8001",
+    "frontend": "cd frontend && npm start",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

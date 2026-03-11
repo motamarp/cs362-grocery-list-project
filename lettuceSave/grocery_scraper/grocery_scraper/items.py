@@ -1,12 +1,15 @@
-# Define here the models for your scraped items
-#
-# See documentation in:
-# https://docs.scrapy.org/en/latest/topics/items.html
-
 import scrapy
 
 
-class GroceryScraperItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class StoreIngredientItem(scrapy.Item):
+    store_name = scrapy.Field()
+    store_chain = scrapy.Field()
+    address = scrapy.Field()
+    latitude = scrapy.Field()
+    longitude = scrapy.Field()
+
+    ingredient_name = scrapy.Field()
+    price = scrapy.Field()
+    price_unit = scrapy.Field()
+    in_stock = scrapy.Field()
+    brand = scrapy.Field()

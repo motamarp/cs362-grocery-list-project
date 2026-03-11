@@ -1,0 +1,73 @@
+store_key,ingredient_name,price,price_unit,in_stock,brand
+walmart,milk,3.49,gallon,true,Great Value
+fred_meyer,milk,3.69,gallon,true,Simple Truth
+safeway,milk,4.19,gallon,true,Lucerne
+walmart,eggs,2.99,dozen,true,Great Value
+fred_meyer,eggs,3.19,dozen,true,Simple Truth
+safeway,eggs,3.49,dozen,true,Lucerne
+walmart,bread,2.48,loaf,true,Wonder
+fred_meyer,bread,2.99,loaf,true,Oroweat
+safeway,bread,3.29,loaf,true,Oroweat
+walmart,bananas,0.58,lb,true,Fresh
+fred_meyer,bananas,0.69,lb,true,Fresh
+safeway,bananas,0.79,lb,true,Fresh
+walmart,apples,1.69,lb,true,Gala
+fred_meyer,apples,1.79,lb,true,Gala
+safeway,apples,1.99,lb,true,Honeycrisp
+walmart,rice,4.98,5lb bag,true,Great Value
+fred_meyer,rice,5.49,5lb bag,true,Simple Truth
+safeway,rice,5.99,5lb bag,true,Signature Select
+walmart,pasta,1.28,box,true,Great Value
+fred_meyer,pasta,1.49,box,true,Barilla
+safeway,pasta,1.79,box,true,Barilla
+walmart,chicken breast,3.99,lb,true,Tyson
+fred_meyer,chicken breast,4.49,lb,true,Simple Truth
+safeway,chicken breast,4.99,lb,true,Signature Farms
+walmart,ground beef,4.49,lb,true,Fresh
+fred_meyer,ground beef,4.79,lb,true,Fresh
+safeway,ground beef,5.29,lb,true,Fresh
+walmart,cheese,2.79,8oz,true,Kraft
+fred_meyer,cheese,2.99,8oz,true,Tillamook
+safeway,cheese,3.49,8oz,true,Tillamook
+walmart,yogurt,0.88,cup,true,Yoplait
+fred_meyer,yogurt,0.99,cup,true,Yoplait
+safeway,yogurt,1.09,cup,true,Yoplait
+walmart,cereal,3.98,box,true,Cheerios
+fred_meyer,cereal,4.29,box,true,Cheerios
+safeway,cereal,4.49,box,true,Cheerios
+walmart,orange juice,3.68,carton,true,Tropicana
+fred_meyer,orange juice,3.89,carton,true,Tropicana
+safeway,orange juice,4.29,carton,true,Simply Orange
+walmart,spinach,2.48,bag,true,Fresh
+fred_meyer,spinach,2.79,bag,true,Organic Girl
+safeway,spinach,2.99,bag,true,Organic Girl
+walmart,lettuce,1.98,head,true,Fresh
+fred_meyer,lettuce,2.09,head,true,Fresh
+safeway,lettuce,2.29,head,true,Fresh
+walmart,coffee,7.98,bag,true,Folgers
+fred_meyer,coffee,8.49,bag,true,Starbucks
+safeway,coffee,8.99,bag,true,Starbucks
+walmart,peanut butter,2.34,jar,true,Jif
+fred_meyer,peanut butter,2.79,jar,true,Jif
+safeway,peanut butter,3.29,jar,true,Jif
+walmart,butter,3.49,lb,true,Great Value
+fred_meyer,butter,3.79,lb,true,Land O Lakes
+safeway,butter,4.19,lb,true,Land O Lakes
+walmart,flour,2.98,5lb bag,true,Gold Medal
+fred_meyer,flour,3.29,5lb bag,true,Gold Medal
+safeway,flour,3.79,5lb bag,true,Gold Medal
+walmart,sugar,2.78,4lb bag,true,Great Value
+fred_meyer,sugar,3.09,4lb bag,true,Domino
+safeway,sugar,3.49,4lb bag,true,Domino
+walmart,carrots,1.28,lb,true,Fresh
+fred_meyer,carrots,1.39,lb,true,Fresh
+safeway,carrots,1.59,lb,true,Fresh
+walmart,onions,1.18,lb,true,Fresh
+fred_meyer,onions,1.29,lb,true,Fresh
+safeway,onions,1.49,lb,true,Fresh
+walmart,potatoes,2.98,5lb bag,true,Russet
+fred_meyer,potatoes,3.29,5lb bag,true,Russet
+safeway,potatoes,3.79,5lb bag,true,Russet
+walmart,broccoli,1.98,lb,true,Fresh
+fred_meyer,broccoli,2.19,lb,true,Fresh
+safeway,broccoli,2.49,lb,true,Fresh
