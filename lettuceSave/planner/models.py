@@ -4,7 +4,13 @@ from django.core.validators import MinValueValidator
 from datetime import timedelta
 
 
+
+
 class Recipe(models.Model):
+    """
+    Stores a single recipe entry, related to :model:`auth.User`.
+    Contains all recipe details including name, ingredients, and nutrition info.
+    """
     MEAL_TYPES = [
         ('breakfast', 'Breakfast'),
         ('lunch', 'Lunch'),
@@ -17,6 +23,7 @@ class Recipe(models.Model):
         ('medium', 'Medium'),
         ('hard', 'Hard'),
     ]
+
 
     name = models.CharField(max_length=200, help_text="Name of the recipe")
     description = models.TextField(blank=True, help_text="Brief description of the recipe")
@@ -36,30 +43,43 @@ class Recipe(models.Model):
     estimated_cost = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
     instructions = models.TextField(blank=True, help_text="Step-by-step cooking instructions")
 
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
+
         ordering = ['name']
+
 
     def __str__(self):
         return self.name
 
     @property
     def total_time_minutes(self):
+
+
         return (self.prep_time_minutes or 0) + (self.cook_time_minutes or 0)
 
     @property
     def calories(self):
+
+
         return self.nutrition.get('calories', 0)
 
 
 class RecipeIngredient(models.Model):
+    """
+    Stores ingredients for a specific recipe.
+    Each ingredient belongs to one recipe (ForeignKey to Recipe).
+    """
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='ingredients')
+
     name = models.CharField(max_length=100, help_text="Ingredient name")
     quantity = models.FloatField(validators=[MinValueValidator(0.01)])
     metric = models.CharField(max_length=20, help_text="Unit")
     category = models.CharField(max_length=50, blank=True, help_text="e.g., produce, dairy")
+
 
     class Meta:
         ordering = ['name']
@@ -69,36 +89,51 @@ class RecipeIngredient(models.Model):
 
 
 class Store(models.Model):
+    """
+    Stores grocery store information.
+    """
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=200, blank=True)
+
     chain = models.CharField(max_length=50, blank=True, help_text="Store chain")
     latitude = models.FloatField(null=True, blank=True)
     longitude = models.FloatField(null=True, blank=True)
+
 
     def __str__(self):
         return self.name
 
 
 class StoreIngredient(models.Model):
+    """
+    Stores pricing and availability for ingredients at specific stores.
+    Used for price comparison feature.
+    """
     store = models.ForeignKey(Store, on_delete=models.CASCADE, related_name='inventory')
+
     ingredient_name = models.CharField(max_length=100, db_index=True)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     price_unit = models.CharField(max_length=20, default='each', help_text="'per lb', 'each', etc.")
+
     in_stock = models.BooleanField(default=True)
     brand = models.CharField(max_length=100, blank=True)
     last_updated = models.DateTimeField(auto_now=True)
 
     class Meta:
+
         unique_together = ['store', 'ingredient_name', 'brand']
         indexes = [models.Index(fields=['store', 'in_stock'])]
         ordering = ['ingredient_name']
+
 
     def __str__(self):
         return f"{self.ingredient_name} at {self.store.name} - ${self.price}"
 
 
 class MealPlan(models.Model):
+
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='planner_meal_plans')
+
     week_start_date = models.DateField(help_text="Monday of the planned week")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -106,6 +141,7 @@ class MealPlan(models.Model):
     is_active = models.BooleanField(default=True, help_text="Is this the user's current plan?")
 
     class Meta:
+
         ordering = ['-week_start_date']
 
     def __str__(self):
@@ -124,10 +160,12 @@ class MealPlan(models.Model):
 
     @property
     def week_end_date(self):
+
         return self.week_start_date + timedelta(days=6)
 
 
 class PlannedMeal(models.Model):
+
     MEAL_TYPES = [
         ('breakfast', 'Breakfast'),
         ('lunch', 'Lunch'),
@@ -135,15 +173,14 @@ class PlannedMeal(models.Model):
         ('snack', 'Snack'),
     ]
 
+
+
     DAYS_OF_WEEK = [
-        (0, 'Monday'),
-        (1, 'Tuesday'),
-        (2, 'Wednesday'),
-        (3, 'Thursday'),
-        (4, 'Friday'),
-        (5, 'Saturday'),
-        (6, 'Sunday'),
+        (0, 'Monday'), (1, 'Tuesday'), (2, 'Wednesday'),
+        (3, 'Thursday'), (4, 'Friday'), (5, 'Saturday'), (6, 'Sunday'),
     ]
+
+
 
     meal_plan = models.ForeignKey(MealPlan, on_delete=models.CASCADE, related_name='meals')
     day_of_week = models.IntegerField(choices=DAYS_OF_WEEK)
@@ -153,7 +190,9 @@ class PlannedMeal(models.Model):
     was_completed = models.BooleanField(default=False, help_text="Did the user actually eat this?")
 
     class Meta:
+
         unique_together = ['meal_plan', 'day_of_week', 'meal_type']
+
         ordering = ['day_of_week', 'meal_type']
 
     def __str__(self):
@@ -163,14 +202,19 @@ class PlannedMeal(models.Model):
 
 
 class GroceryList(models.Model):
+
+
     meal_plan = models.OneToOneField(MealPlan, on_delete=models.CASCADE, related_name='grocery_list')
     name = models.CharField(max_length=100, default="My Grocery List")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
     total_cost = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, default=0)
+
 
     def __str__(self):
         return f"Grocery list for {self.meal_plan}"
+
 
     def recalculate_total(self):
         total = sum(item.total_price for item in self.items.all())
@@ -196,22 +240,26 @@ class GroceryList(models.Model):
 
 
 class GroceryListItem(models.Model):
+
     grocery_list = models.ForeignKey(GroceryList, on_delete=models.CASCADE, related_name='items')
     ingredient_name = models.CharField(max_length=100)
     quantity = models.FloatField(validators=[MinValueValidator(0.01)])
     metric = models.CharField(max_length=20)
+
 
     suggested_store = models.ForeignKey(Store, on_delete=models.SET_NULL, null=True, blank=True)
     price_estimate = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
     brand = models.CharField(max_length=100, blank=True)
 
     is_purchased = models.BooleanField(default=False)
+
     source_recipes = models.ManyToManyField(Recipe, blank=True)
 
     class Meta:
         ordering = ['ingredient_name']
 
     def __str__(self):
+
         return f"{self.quantity} {self.metric} {self.ingredient_name}"
 
     @property
@@ -230,3 +278,4 @@ class GroceryListItem(models.Model):
         super().delete(*args, **kwargs)
         if grocery_list:
             grocery_list.recalculate_total()
+
