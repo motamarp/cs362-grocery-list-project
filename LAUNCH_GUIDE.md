@@ -36,7 +36,7 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-### 3. Install remaining dependencies
+### 3. Install remaining dependencies and migrate
 ```bash
 pip install -r requirements.txt
 python manage.py migrate
