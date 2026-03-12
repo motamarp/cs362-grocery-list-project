@@ -349,3 +349,12 @@ Free on Fridays and weekends
 |Week 9	|	Project report	| |
 
 
+##Reflections
+Piper Winer
+For this project I had to learn about specific frameworks, specifically Django. It was interesting reading all the documentation on how to properly use Django to help in the creation of applications, instead of having it as a hindrance. There were many packages and modules that Django recommended but ultimately they ended up fogging up the system and at one point made it impossible for me to even download my work. Overall, I was able to understand my computer’s operating system and the importance of not overrelying on premade packages or modules. Sometimes, the simplest option might be a bit more taxing but ultimately more straight forward. 
+
+Continuing along with learning about developmental tools, I was able to learn a lot about GitHub. I have never really used it before on large projects, and trial and error had definitely occurred. When creating the foundational application set up, I should have done a better job of creating the skeleton and then creating a personal branch to implement my part of the project. 
+
+Lastly, since this was my first time working in a group for a large project, I was not the best team member. My communication skills started out fine but as the school term progressed and I became more and more overwhelmed, my communicating to teammates dropped. Which left them in a poor position, and next time I should be honest about not being able to accomplish my tasks instead of ghosting them. 
+
+
