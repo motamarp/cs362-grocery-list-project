@@ -358,3 +358,6 @@ Continuing along with learning about developmental tools, I was able to learn a 
 Lastly, since this was my first time working in a group for a large project, I was not the best team member. My communication skills started out fine but as the school term progressed and I became more and more overwhelmed, my communicating to teammates dropped. Which left them in a poor position, and next time I should be honest about not being able to accomplish my tasks instead of ghosting them. 
 
 
+Ahman Raines
+Working on this project taught me a lot about structured software development. Things like writing formal use cases and requirements pushed me to think beyond just features and consider how users would actually interact with the application. Planning the project from nothing helped me understand how to break a large project into manageable pieces, and I also learned a lot about GitHub, such as GitHub issues and how to maintain focus on problems in the development process.
+
