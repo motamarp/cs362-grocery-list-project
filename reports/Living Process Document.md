@@ -349,8 +349,10 @@ Free on Fridays and weekends
 |Week 9	|	Project report	| |
 
 
-##Reflections
-**Piper Winder**
+## Reflections
+
+**Piper Winder:**
+
 For this project I had to learn about specific frameworks, specifically Django. It was interesting reading all the documentation on how to properly use Django to help in the creation of applications, instead of having it as a hindrance. There were many packages and modules that Django recommended but ultimately they ended up fogging up the system and at one point made it impossible for me to even download my work. Overall, I was able to understand my computer’s operating system and the importance of not overrelying on premade packages or modules. Sometimes, the simplest option might be a bit more taxing but ultimately more straight forward. 
 
 Continuing along with learning about developmental tools, I was able to learn a lot about GitHub. I have never really used it before on large projects, and trial and error had definitely occurred. When creating the foundational application set up, I should have done a better job of creating the skeleton and then creating a personal branch to implement my part of the project. 
@@ -358,10 +360,12 @@ Continuing along with learning about developmental tools, I was able to learn a 
 Lastly, since this was my first time working in a group for a large project, I was not the best team member. My communication skills started out fine but as the school term progressed and I became more and more overwhelmed, my communicating to teammates dropped. Which left them in a poor position, and next time I should be honest about not being able to accomplish my tasks instead of ghosting them. 
 
 
-**Ahman Raines**
+**Ahman Raines:**
+
 Working on this project taught me a lot about structured software development. Things like writing formal use cases and requirements pushed me to think beyond just features and consider how users would actually interact with the application. Planning the project from nothing helped me understand how to break a large project into manageable pieces, and I also learned a lot about GitHub, such as GitHub issues and how to maintain focus on problems in the development process.
 
-**Paolo Mota Marques**
+**Paolo Mota Marques:**
+
 For this project I had to understand how to use both React and Django, both of which I’d never made use of before. Putting everything together and trying to make it work with Scrappy was challenging, but it helped me grow as a developer. I overcame many challenges regarding the connection of the backend and frontend, but I was able to adapt over time.
 
 Through this period, I learned three main things: 
@@ -372,7 +376,8 @@ Through this period, I learned three main things:
 
 All in all, I was unable to fully-integrate and get around websites having scraper-blockers and other forms of Scrapy-blockage. Thus, I had to settle with workarounds such as using a csv file with information from the sites instead. I was able to grow as a developer, despite the stress that was placed on me for taking on roles that went unaccounted for. Instead of hindering myself, it helped me understand things I never thought I’d even come close to comprehending by the time the course was done. 
 
-**Hilarion Christian Gunawan**
+**Hilarion Christian Gunawan:**
+
 This was my first experience creating a project application such as this with a team. I have learned and experienced a lot of new things from learning new code frameworks to picking up new skills of working in a software engineering team. The first lesson I learned was to adapt. Throughout my journey, I continuously get errors in my code which I don't know how to fix. The Django framework was new to me and reading the documentation often overwhelms me due to the amount of information. I often just thought about putting the learning django framework to the side and doing other things but I always try to hold myself and put in the effort and time to understand and fix the problem. While I often look through the documentation, I also watched videos tutorials explaining the Django framework instead. This paid off a lot as now I was able to finally create my recipe, meal plan and grocery list models and serializers and test them by using the json data and API in the Django Rest framework .This experience helped me grow as Software engineer and helped me understand on the methods of how I can learn better.
 
 Another lesson which I found very helpful through the course of this project is communication. Communication within the team is very integral. It helps me and my teammates to inform one another on important deadlines, fixes on the code, and what implementations are needed for the project. Communication helps me to keep me in the loop of what things need to be done and how I can help instead of making me lost on what to do. 
